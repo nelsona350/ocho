@@ -160,7 +160,7 @@ void	rollBalls()
 
 //			draw from remaining balls
 
-			n = numberOfBallsRemaining * rand() / 32768;
+			n = rand() % numberOfBallsRemaining;
 			hole[i] = ball[n];
 			numberOfBallsRemaining--;
 
