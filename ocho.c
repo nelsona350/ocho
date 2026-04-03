@@ -6,13 +6,15 @@
 int	numberOfMatches,numberOfBallsRemaining,ball[8],hole[8];
 void	rollBalls();
 
-main(argc,argv)
+int main(argc,argv)
 int	argc;
 char	*argv[];
 {
 	int	i,j,nturns,goodInitialRoll,max_turns=10;
 	double	mvalue=1.,score,total_score;
 	char ans[2];
+
+    printf("Welcome to OCHO");
 	
 //	Seed the random-number generator with current time so that
 //	the numbers will be different every time we run.
