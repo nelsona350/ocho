@@ -37,14 +37,6 @@ to nelsapps
 
 Sent from my iPhone
 
-Begin forwarded message:
-
-From: "The Nelsons" <8nelsons@bellsouth.net>
-Date: April 26, 2013, 20:32:05 CDT
-To: <nelsona350@gmail.com>
-Subject: ocho
- One attachment
-  •  Scanned by Gmail
 #include <stdio.h>
 #include <math.h>
 #include <time.h>
@@ -226,5 +218,3 @@ void	rollBalls()
 
 	return;
 }
-ocho2.c
-Displaying ocho2.c.
