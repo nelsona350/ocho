@@ -6,14 +6,14 @@ from tkinter import messagebox, simpledialog
 
 
 class OchoGame:
-    def __init__(self, rounds_per_set: int = 8, extension_threshold: int = 88):
-        self.rounds_per_set = rounds_per_set
-        self.extension_threshold = extension_threshold
+    def __init__(self, frames_per_round: int = 8, bonus_round_threshold: int = 88):
+        self.frames_per_round = frames_per_round
+        self.bonus_round_threshold = bonus_round_threshold
         self.turn = 1
-        self.turn_in_set = 1
-        self.set_number = 1
+        self.frame_in_round = 1
+        self.round_number = 1
         self.total_score = 0.0
-        self.current_set_score = 0.0
+        self.current_round_score = 0.0
 
         self.ball = list(range(1, 9))
         self.hole = [0] * 8
@@ -29,7 +29,7 @@ class OchoGame:
         self.number_of_balls_remaining = 8
 
     def _start_new_turn(self) -> None:
-        # Keep the same opening behavior as the original: each turn must start with a match.
+        # Keep the same opening behavior as the original: each frame must start with a match.
         while True:
             self._reset_board()
             self.roll_balls()
@@ -76,53 +76,53 @@ class OchoGame:
 
     def reset_game(self) -> None:
         self.turn = 1
-        self.turn_in_set = 1
-        self.set_number = 1
+        self.frame_in_round = 1
+        self.round_number = 1
         self.total_score = 0.0
-        self.current_set_score = 0.0
+        self.current_round_score = 0.0
         self._start_new_turn()
 
     def end_turn(self) -> dict[str, bool | float]:
         turn_score = self.current_score()
         self.total_score += turn_score
-        self.current_set_score += turn_score
+        self.current_round_score += turn_score
 
         self.turn += 1
 
-        set_completed = self.turn_in_set >= self.rounds_per_set
-        if set_completed:
-            completed_set_score = self.current_set_score
-            if completed_set_score >= self.extension_threshold:
-                self.turn_in_set = 1
-                self.set_number += 1
-                self.current_set_score = 0.0
+        round_completed = self.frame_in_round >= self.frames_per_round
+        if round_completed:
+            completed_round_score = self.current_round_score
+            if completed_round_score >= self.bonus_round_threshold:
+                self.frame_in_round = 1
+                self.round_number += 1
+                self.current_round_score = 0.0
                 self._start_new_turn()
                 return {
                     "game_over": False,
-                    "set_completed": True,
-                    "completed_set_score": completed_set_score,
-                    "earned_extra_set": True,
+                    "round_completed": True,
+                    "completed_round_score": completed_round_score,
+                    "earned_bonus_round": True,
                 }
 
             return {
                 "game_over": True,
-                "set_completed": True,
-                "completed_set_score": completed_set_score,
-                "earned_extra_set": False,
+                "round_completed": True,
+                "completed_round_score": completed_round_score,
+                "earned_bonus_round": False,
             }
 
         self._start_new_turn()
-        self.turn_in_set += 1
+        self.frame_in_round += 1
         return {
             "game_over": False,
-            "set_completed": False,
-            "completed_set_score": 0.0,
-            "earned_extra_set": False,
+            "round_completed": False,
+            "completed_round_score": 0.0,
+            "earned_bonus_round": False,
         }
 
 
 class OchoApp:
-    HIGH_SCORE_LIMIT = 10
+    HIGH_SCORE_LIMIT = 3
 
     def __init__(self, root: tk.Tk):
         self.root = root
@@ -135,7 +135,7 @@ class OchoApp:
         self.images = self._load_images()
         self._notify_missing_images()
 
-        self.game = OchoGame(rounds_per_set=8, extension_threshold=88)
+        self.game = OchoGame(frames_per_round=8, bonus_round_threshold=88)
         self.high_scores_file = Path(__file__).with_name("ocho_high_scores.json")
         self.high_scores = self._load_high_scores()
 
@@ -236,7 +236,7 @@ class OchoApp:
 
         self.end_turn_btn = tk.Button(
             actions,
-            text="END TURN",
+            text="END FRAME",
             command=self.end_turn,
             font=("Helvetica", 11, "bold"),
             width=14,
@@ -361,11 +361,11 @@ class OchoApp:
             self.game.reload_non_matches()
 
         round_score = self.game.current_score()
-        self.turn_label.config(text=f"Round {self.game.turn_in_set}/8 (Set {self.game.set_number})")
+        self.turn_label.config(text=f"Frame {self.game.frame_in_round}/8 (Round {self.game.round_number})")
         self.total_score_label.config(text=f"Total Score: {self.game.total_score:.0f}")
-        self.round_score_label.config(text=f"Round Score: {round_score:.0f}")
-        set_score_if_ended = self.game.current_set_score + round_score
-        self.points_to_go_label.config(text=f"To 88: {max(0, 88 - int(set_score_if_ended))}")
+        self.round_score_label.config(text=f"Frame Score: {round_score:.0f}")
+        round_score_if_ended = self.game.current_round_score + round_score
+        self.points_to_go_label.config(text=f"To Bonus Round (88): {max(0, 88 - int(round_score_if_ended))}")
 
         for i, val in enumerate(self.game.hole):
             self._draw_hole(i, val)
@@ -383,8 +383,8 @@ class OchoApp:
         self.update_view(after_roll=True)
 
     def end_turn(self) -> None:
-        prior_turn = self.game.turn
-        turn_score = self.game.current_score()
+        prior_frame = self.game.turn
+        frame_score = self.game.current_score()
 
         end_result = self.game.end_turn()
         if bool(end_result["game_over"]):
@@ -393,7 +393,7 @@ class OchoApp:
             messagebox.showinfo(
                 "Game Over",
                 (
-                    f"Set score was {float(end_result['completed_set_score']):.0f} in 8 rounds (< 88).\n"
+                    f"Round score was {float(end_result['completed_round_score']):.0f} in 8 frames (< 88).\n"
                     f"Final score: {final_total:.0f}.\nStarting a new game."
                 ),
             )
@@ -402,17 +402,17 @@ class OchoApp:
             self.update_view(after_roll=True)
             return
 
-        if bool(end_result["earned_extra_set"]):
+        if bool(end_result["earned_bonus_round"]):
             self.status_label.config(
                 text=(
-                    f"Set complete: {float(end_result['completed_set_score']):.0f} points in 8 rounds. "
-                    "You earned another set of 8 rounds!"
+                    f"Round complete: {float(end_result['completed_round_score']):.0f} points in 8 frames. "
+                    "You earned a bonus round!"
                 )
             )
             self.update_view(after_roll=True)
             return
 
-        self.status_label.config(text=f"Ended turn {prior_turn} with {turn_score:.0f} points.")
+        self.status_label.config(text=f"Ended frame {prior_frame} with {frame_score:.0f} points.")
         self.update_view(after_roll=True)
 
     def new_game(self) -> None:
