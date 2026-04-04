@@ -214,7 +214,6 @@ class OchoGui {
 
     hole_buttons_.resize(8);
     frame_score_labels_.resize(8);
-    hole_click_context_.clear();
 
     for (int i = 0; i < 8; ++i) {
       auto* frame_score = gtk_label_new("0");
@@ -223,8 +222,8 @@ class OchoGui {
 
       auto* btn = gtk_button_new_with_label(std::to_string(i + 1).c_str());
       gtk_widget_set_size_request(btn, 80, 34);
-      hole_click_context_.push_back(std::make_pair(this, i));
-      g_signal_connect(btn, "clicked", G_CALLBACK(on_hole_clicked), &hole_click_context_.back());
+      hole_click_context_[i] = std::make_pair(this, i);
+      g_signal_connect(btn, "clicked", G_CALLBACK(on_hole_clicked), &hole_click_context_[i]);
       gtk_grid_attach(GTK_GRID(grid), btn, 1, i, 1, 1);
       hole_buttons_[i] = btn;
     }
@@ -455,7 +454,7 @@ class OchoGui {
 
   std::vector<GtkWidget*> hole_buttons_;
   std::vector<GtkWidget*> frame_score_labels_;
-  std::vector<std::pair<OchoGui*, int>> hole_click_context_;
+  std::array<std::pair<OchoGui*, int>, 8> hole_click_context_{};
 };
 
 int main(int argc, char** argv) {
