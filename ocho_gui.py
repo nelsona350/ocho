@@ -128,8 +128,9 @@ class OchoApp:
         self.root = root
         self.root.title("OCHO (Python Port)")
         self.root.configure(bg="#f4f4f4")
-        self.root.geometry("320x540")
-        self.root.minsize(280, 420)
+        # Use a larger default window so controls are visible without scrolling.
+        self.root.geometry("420x760")
+        self.root.minsize(360, 640)
         self.root.resizable(True, True)
 
         self.asset_dir = Path(__file__).parent / "OchoSimple" / "OchoSimple"
