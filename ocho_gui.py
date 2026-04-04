@@ -128,8 +128,9 @@ class OchoApp:
         self.root = root
         self.root.title("OCHO (Python Port)")
         self.root.configure(bg="#f4f4f4")
-        self.root.geometry("360x700")
-        self.root.resizable(False, False)
+        self.root.geometry("320x540")
+        self.root.minsize(280, 420)
+        self.root.resizable(True, True)
 
         self.asset_dir = Path(__file__).parent / "OchoSimple" / "OchoSimple"
         self.images = self._load_images()
@@ -141,9 +142,37 @@ class OchoApp:
         self.high_scores_window: tk.Toplevel | None = None
         self.high_scores_text_label: tk.Label | None = None
 
+        self._build_scrollable_root()
         self._build_ui()
         self.update_view(after_roll=True)
         self.update_high_score_view()
+
+    def _build_scrollable_root(self) -> None:
+        self.container = tk.Frame(self.root, bg="#f4f4f4")
+        self.container.pack(fill=tk.BOTH, expand=True)
+
+        self.scroll_canvas = tk.Canvas(self.container, bg="#f4f4f4", highlightthickness=0)
+        self.scrollbar = tk.Scrollbar(self.container, orient=tk.VERTICAL, command=self.scroll_canvas.yview)
+        self.scroll_canvas.configure(yscrollcommand=self.scrollbar.set)
+
+        self.scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        self.scroll_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+        self.content = tk.Frame(self.scroll_canvas, bg="#f4f4f4")
+        self.content_window = self.scroll_canvas.create_window((0, 0), window=self.content, anchor="nw")
+
+        self.content.bind("<Configure>", self._on_content_configure)
+        self.scroll_canvas.bind("<Configure>", self._on_canvas_configure)
+        self.scroll_canvas.bind_all("<MouseWheel>", self._on_mouse_wheel)
+
+    def _on_content_configure(self, _evt: tk.Event) -> None:
+        self.scroll_canvas.configure(scrollregion=self.scroll_canvas.bbox("all"))
+
+    def _on_canvas_configure(self, event: tk.Event) -> None:
+        self.scroll_canvas.itemconfigure(self.content_window, width=event.width)
+
+    def _on_mouse_wheel(self, event: tk.Event) -> None:
+        self.scroll_canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
 
     def _load_images(self) -> dict[str, tk.PhotoImage | None]:
         image_names = {
@@ -190,11 +219,11 @@ class OchoApp:
 
     def _build_ui(self) -> None:
         if self.images["logo"]:
-            tk.Label(self.root, image=self.images["logo"], bg="#f4f4f4").pack(pady=(8, 4))
+            tk.Label(self.content, image=self.images["logo"], bg="#f4f4f4").pack(pady=(8, 4))
         else:
-            tk.Label(self.root, text="OCHO", font=("Helvetica", 24, "bold"), bg="#f4f4f4").pack(pady=(8, 4))
+            tk.Label(self.content, text="OCHO", font=("Helvetica", 24, "bold"), bg="#f4f4f4").pack(pady=(8, 4))
 
-        stat_row = tk.Frame(self.root, bg="#f4f4f4")
+        stat_row = tk.Frame(self.content, bg="#f4f4f4")
         stat_row.pack(fill=tk.X, padx=12)
 
         self.turn_label = tk.Label(stat_row, text="", font=("Helvetica", 11, "bold"), bg="#f4f4f4")
@@ -203,7 +232,7 @@ class OchoApp:
         self.points_to_go_label = tk.Label(stat_row, text="", font=("Helvetica", 11), bg="#f4f4f4")
         self.points_to_go_label.pack(side=tk.RIGHT)
 
-        totals = tk.Frame(self.root, bg="#f4f4f4")
+        totals = tk.Frame(self.content, bg="#f4f4f4")
         totals.pack(fill=tk.X, padx=12, pady=(2, 8))
 
         self.total_score_label = tk.Label(totals, text="", font=("Helvetica", 11, "bold"), bg="#f4f4f4")
@@ -212,7 +241,7 @@ class OchoApp:
         self.round_score_label = tk.Label(totals, text="", font=("Helvetica", 11), bg="#f4f4f4")
         self.round_score_label.pack(side=tk.RIGHT)
 
-        board = tk.Frame(self.root, bg="#ffffff", bd=1, relief=tk.SOLID)
+        board = tk.Frame(self.content, bg="#ffffff", bd=1, relief=tk.SOLID)
         board.pack(padx=12, pady=(0, 8), fill=tk.X)
 
         self.hole_canvases: list[tk.Canvas] = []
@@ -233,7 +262,7 @@ class OchoApp:
             self.hole_canvases.append(cv)
             self.hole_value_ids.append(cv.create_text(24, 24, text=str(i + 1), fill="white", font=("Helvetica", 14, "bold")))
 
-        actions = tk.Frame(self.root, bg="#f4f4f4")
+        actions = tk.Frame(self.content, bg="#f4f4f4")
         actions.pack(fill=tk.X, padx=12, pady=(2, 6))
 
         self.end_turn_btn = tk.Button(
@@ -263,7 +292,7 @@ class OchoApp:
         self.new_game_btn.pack(side=tk.RIGHT)
 
         self.status_label = tk.Label(
-            self.root,
+            self.content,
             text="Tap a matching coin to return it and roll again.",
             bg="#f4f4f4",
             wraplength=330,
@@ -273,7 +302,7 @@ class OchoApp:
         self.status_label.pack(fill=tk.X, padx=12, pady=(2, 6))
 
         self.show_high_scores_btn = tk.Button(
-            self.root,
+            self.content,
             text="HIGH SCORES",
             command=self.show_high_scores,
             font=("Helvetica", 11, "bold"),
@@ -286,7 +315,7 @@ class OchoApp:
         self.show_high_scores_btn.pack(pady=(0, 8))
 
         if self.images["author"]:
-            tk.Label(self.root, image=self.images["author"], bg="#f4f4f4").pack(pady=(0, 8))
+            tk.Label(self.content, image=self.images["author"], bg="#f4f4f4").pack(pady=(0, 8))
 
     def _load_high_scores(self) -> list[dict[str, float | str]]:
         if not self.high_scores_file.exists():
