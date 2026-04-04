@@ -98,6 +98,7 @@ class OchoApp:
 
         self.asset_dir = Path(__file__).parent / "OchoSimple" / "OchoSimple"
         self.images = self._load_images()
+        self._notify_missing_images()
 
         self.game = OchoGame(max_turns=10)
         self.high_scores_file = Path(__file__).with_name("ocho_high_scores.json")
@@ -123,6 +124,32 @@ class OchoApp:
             except tk.TclError:
                 loaded[key] = None
         return loaded
+
+    def _notify_missing_images(self) -> None:
+        missing = [
+            filename
+            for key, filename in {
+                "logo": "OchoLogo.png",
+                "author": "AdamZapplCropped.png",
+                "coin": "blackButton.png",
+                "empty": "silverButton.png",
+                "cta": "silverRectButton.png",
+            }.items()
+            if self.images.get(key) is None
+        ]
+        if not missing:
+            return
+
+        lines = "\n".join(f"• {name}" for name in missing)
+        messagebox.showwarning(
+            "Images Unavailable",
+            (
+                "Some graphics could not be loaded from:\n"
+                f"{self.asset_dir}\n\n"
+                "The app will use fallback visuals for:\n"
+                f"{lines}"
+            ),
+        )
 
     def _build_ui(self) -> None:
         if self.images["logo"]:
