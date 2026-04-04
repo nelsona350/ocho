@@ -45,7 +45,7 @@ class OchoGame {
 
     const int insert_at = 7 - number_of_matches_;
     ball_.insert(ball_.begin() + std::min(insert_at, static_cast<int>(ball_.size())), returned_ball);
-    number_of_balls_remaining_ = 8 - number_of_matches_;
+    number_of_balls_remaining_ = static_cast<int>(ball_.size());
     roll_balls();
     return true;
   }
@@ -83,6 +83,7 @@ class OchoGame {
       }
     }
     ball_ = reloaded;
+    number_of_balls_remaining_ = static_cast<int>(ball_.size());
   }
 
   double current_score() const {
@@ -119,10 +120,11 @@ class OchoGame {
   void roll_balls() {
     for (int i = 0; i < 8; ++i) {
       if (hole_[i] == 0) {
-        const int n = std::uniform_int_distribution<int>(0, number_of_balls_remaining_ - 1)(rng_);
+        const int n =
+            std::uniform_int_distribution<int>(0, static_cast<int>(ball_.size()) - 1)(rng_);
         hole_[i] = ball_[n];
-        number_of_balls_remaining_--;
         ball_.erase(ball_.begin() + n);
+        number_of_balls_remaining_ = static_cast<int>(ball_.size());
       }
     }
 
