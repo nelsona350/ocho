@@ -122,7 +122,7 @@ class OchoGame:
 
 
 class OchoApp:
-    HIGH_SCORE_LIMIT = 3
+    HIGH_SCORE_LIMIT = 8
 
     def __init__(self, root: tk.Tk):
         self.root = root
@@ -138,6 +138,8 @@ class OchoApp:
         self.game = OchoGame(frames_per_round=8, bonus_round_threshold=88)
         self.high_scores_file = Path(__file__).with_name("ocho_high_scores.json")
         self.high_scores = self._load_high_scores()
+        self.high_scores_window: tk.Toplevel | None = None
+        self.high_scores_text_label: tk.Label | None = None
 
         self._build_ui()
         self.update_view(after_roll=True)
@@ -270,15 +272,18 @@ class OchoApp:
         )
         self.status_label.pack(fill=tk.X, padx=12, pady=(2, 6))
 
-        self.high_score_label = tk.Label(
+        self.show_high_scores_btn = tk.Button(
             self.root,
-            text="",
-            justify=tk.LEFT,
-            anchor="w",
-            font=("Courier", 9),
-            bg="#f4f4f4",
+            text="HIGH SCORES",
+            command=self.show_high_scores,
+            font=("Helvetica", 11, "bold"),
+            width=14,
+            relief=tk.RAISED,
+            bd=2,
         )
-        self.high_score_label.pack(fill=tk.BOTH, expand=True, padx=12, pady=(0, 8))
+        if self.images["cta"]:
+            self.show_high_scores_btn.configure(image=self.images["cta"], compound=tk.CENTER)
+        self.show_high_scores_btn.pack(pady=(0, 8))
 
         if self.images["author"]:
             tk.Label(self.root, image=self.images["author"], bg="#f4f4f4").pack(pady=(0, 8))
@@ -328,14 +333,55 @@ class OchoApp:
         self._save_high_scores()
         self.update_high_score_view()
 
-    def update_high_score_view(self) -> None:
+    def _high_score_text(self) -> str:
         lines = [f"High Scores (Top {self.HIGH_SCORE_LIMIT})"]
         if not self.high_scores:
             lines.append("  No scores yet.")
         else:
             for i, entry in enumerate(self.high_scores, start=1):
                 lines.append(f"{i:>2}. {entry['name']:<12} {entry['score']:.0f}")
-        self.high_score_label.config(text="\n".join(lines))
+        return "\n".join(lines)
+
+    def update_high_score_view(self) -> None:
+        if self.high_scores_text_label is not None:
+            self.high_scores_text_label.config(text=self._high_score_text())
+
+    def _close_high_scores_window(self) -> None:
+        if self.high_scores_window is not None:
+            self.high_scores_window.destroy()
+        self.high_scores_window = None
+        self.high_scores_text_label = None
+
+    def show_high_scores(self) -> None:
+        if self.high_scores_window is not None and self.high_scores_window.winfo_exists():
+            self.high_scores_window.lift()
+            self.high_scores_window.focus_force()
+            return
+
+        self.high_scores_window = tk.Toplevel(self.root)
+        self.high_scores_window.title("High Scores")
+        self.high_scores_window.configure(bg="#f4f4f4")
+        self.high_scores_window.resizable(False, False)
+        self.high_scores_window.geometry("280x280")
+        self.high_scores_window.protocol("WM_DELETE_WINDOW", self._close_high_scores_window)
+
+        self.high_scores_text_label = tk.Label(
+            self.high_scores_window,
+            text=self._high_score_text(),
+            justify=tk.LEFT,
+            anchor="nw",
+            font=("Courier", 10),
+            bg="#f4f4f4",
+        )
+        self.high_scores_text_label.pack(fill=tk.BOTH, expand=True, padx=12, pady=(12, 8))
+
+        tk.Button(
+            self.high_scores_window,
+            text="CLOSE",
+            command=self._close_high_scores_window,
+            font=("Helvetica", 10, "bold"),
+            width=10,
+        ).pack(pady=(0, 12))
 
     def _draw_hole(self, idx: int, value: int) -> None:
         cv = self.hole_canvases[idx]
