@@ -6,10 +6,14 @@ from tkinter import messagebox, simpledialog
 
 
 class OchoGame:
-    def __init__(self, max_turns: int = 10):
-        self.max_turns = max_turns
+    def __init__(self, rounds_per_set: int = 8, extension_threshold: int = 88):
+        self.rounds_per_set = rounds_per_set
+        self.extension_threshold = extension_threshold
         self.turn = 1
+        self.turn_in_set = 1
+        self.set_number = 1
         self.total_score = 0.0
+        self.current_set_score = 0.0
 
         self.ball = list(range(1, 9))
         self.hole = [0] * 8
@@ -72,18 +76,49 @@ class OchoGame:
 
     def reset_game(self) -> None:
         self.turn = 1
+        self.turn_in_set = 1
+        self.set_number = 1
         self.total_score = 0.0
+        self.current_set_score = 0.0
         self._start_new_turn()
 
-    def end_turn(self) -> bool:
-        self.total_score += self.current_score()
+    def end_turn(self) -> dict[str, bool | float]:
+        turn_score = self.current_score()
+        self.total_score += turn_score
+        self.current_set_score += turn_score
+
         self.turn += 1
-        if self.turn > self.max_turns:
-            self.reset_game()
-            return True
+
+        set_completed = self.turn_in_set >= self.rounds_per_set
+        if set_completed:
+            completed_set_score = self.current_set_score
+            if completed_set_score >= self.extension_threshold:
+                self.turn_in_set = 1
+                self.set_number += 1
+                self.current_set_score = 0.0
+                self._start_new_turn()
+                return {
+                    "game_over": False,
+                    "set_completed": True,
+                    "completed_set_score": completed_set_score,
+                    "earned_extra_set": True,
+                }
+
+            return {
+                "game_over": True,
+                "set_completed": True,
+                "completed_set_score": completed_set_score,
+                "earned_extra_set": False,
+            }
 
         self._start_new_turn()
-        return False
+        self.turn_in_set += 1
+        return {
+            "game_over": False,
+            "set_completed": False,
+            "completed_set_score": 0.0,
+            "earned_extra_set": False,
+        }
 
 
 class OchoApp:
@@ -100,7 +135,7 @@ class OchoApp:
         self.images = self._load_images()
         self._notify_missing_images()
 
-        self.game = OchoGame(max_turns=10)
+        self.game = OchoGame(rounds_per_set=8, extension_threshold=88)
         self.high_scores_file = Path(__file__).with_name("ocho_high_scores.json")
         self.high_scores = self._load_high_scores()
 
@@ -326,10 +361,11 @@ class OchoApp:
             self.game.reload_non_matches()
 
         round_score = self.game.current_score()
-        self.turn_label.config(text=f"Turn {self.game.turn}/10")
+        self.turn_label.config(text=f"Round {self.game.turn_in_set}/8 (Set {self.game.set_number})")
         self.total_score_label.config(text=f"Total Score: {self.game.total_score:.0f}")
         self.round_score_label.config(text=f"Round Score: {round_score:.0f}")
-        self.points_to_go_label.config(text=f"To 88: {max(0, 88 - int(round_score))}")
+        set_score_if_ended = self.game.current_set_score + round_score
+        self.points_to_go_label.config(text=f"To 88: {max(0, 88 - int(set_score_if_ended))}")
 
         for i, val in enumerate(self.game.hole):
             self._draw_hole(i, val)
@@ -348,18 +384,31 @@ class OchoApp:
 
     def end_turn(self) -> None:
         prior_turn = self.game.turn
-        prior_total = self.game.total_score
         turn_score = self.game.current_score()
 
-        started_new_game = self.game.end_turn()
-        if started_new_game:
-            final_total = prior_total + turn_score
+        end_result = self.game.end_turn()
+        if bool(end_result["game_over"]):
+            final_total = self.game.total_score
             self._record_high_score(final_total)
             messagebox.showinfo(
                 "Game Over",
-                f"Game over after 10 turns. Final score: {final_total:.0f}.\nStarting a new game.",
+                (
+                    f"Set score was {float(end_result['completed_set_score']):.0f} in 8 rounds (< 88).\n"
+                    f"Final score: {final_total:.0f}.\nStarting a new game."
+                ),
             )
+            self.game.reset_game()
             self.status_label.config(text="New game started.")
+            self.update_view(after_roll=True)
+            return
+
+        if bool(end_result["earned_extra_set"]):
+            self.status_label.config(
+                text=(
+                    f"Set complete: {float(end_result['completed_set_score']):.0f} points in 8 rounds. "
+                    "You earned another set of 8 rounds!"
+                )
+            )
             self.update_view(after_roll=True)
             return
 
