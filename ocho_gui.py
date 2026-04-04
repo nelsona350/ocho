@@ -184,10 +184,10 @@ class OchoApp:
         }
         loaded: dict[str, tk.PhotoImage | None] = {}
         for key, filename in image_names.items():
-            path = self.asset_dir / filename
-            try:
-                loaded[key] = tk.PhotoImage(file=str(path))
-            except tk.TclError:
+#            path = self.asset_dir / filename
+#            try:
+#                loaded[key] = tk.PhotoImage(file=str(path))
+#            except tk.TclError:
                 loaded[key] = None
         return loaded
 
