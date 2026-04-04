@@ -1,0 +1,1409 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Ocho Simple View Controller-->
+        <scene sceneID="5">
+            <objects>
+                <viewController id="2" customClass="OchoSimpleViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.30000000000000004" contentMode="scaleToFill" image="silverButton.png" id="BeO-sh-Lhm">
+                                <rect key="frame" x="252" y="20" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" staticText="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.30000000000000004" contentMode="scaleToFill" image="silverButton.png" id="f9P-F1-5bR">
+                                <rect key="frame" x="252" y="76" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" staticText="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.30000000000000004" contentMode="scaleToFill" image="silverButton.png" id="P3m-eX-8cd">
+                                <rect key="frame" x="252" y="132" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" staticText="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.30000000000000004" contentMode="scaleToFill" image="silverButton.png" id="14Y-AI-T9U">
+                                <rect key="frame" x="252" y="189" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" staticText="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.30000000000000004" contentMode="scaleToFill" image="silverButton.png" id="O5B-CG-sdk">
+                                <rect key="frame" x="252" y="246" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" staticText="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.30000000000000004" contentMode="scaleToFill" image="silverButton.png" id="kE4-XW-MVu">
+                                <rect key="frame" x="252" y="302" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" staticText="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.30000000000000004" contentMode="scaleToFill" image="silverButton.png" id="OU9-ri-Vs6">
+                                <rect key="frame" x="252" y="359" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" staticText="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.30000000000000004" contentMode="scaleToFill" image="silverButton.png" id="dy3-fa-zMX">
+                                <rect key="frame" x="252" y="415" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" staticText="YES"/>
+                                </accessibility>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h1L-V0-mDe">
+                                <rect key="frame" x="252" y="20" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="25"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kIn-CM-HnL">
+                                <rect key="frame" x="252" y="76" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="25"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3NC-8N-zcH">
+                                <rect key="frame" x="252" y="132" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="25"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nll-qc-g4L">
+                                <rect key="frame" x="252" y="189" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="25"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="40" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pFO-FL-j1S">
+                                <rect key="frame" x="252" y="246" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="25"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="40" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0S5-lZ-cz6">
+                                <rect key="frame" x="252" y="302" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="25"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="40" text="7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LdX-L4-C1r">
+                                <rect key="frame" x="252" y="359" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="25"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="40" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ncs-vd-iHM">
+                                <rect key="frame" x="252" y="415" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="25"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" id="n7G-qg-Xjw">
+                                <rect key="frame" x="252" y="20" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="40"/>
+                                <state key="normal" title="1" backgroundImage="orangeButton.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="holeOneClick:" destination="2" eventType="touchUpInside" id="Kbf-6K-v0f"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" id="iJO-yt-4fE">
+                                <rect key="frame" x="252" y="76" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="40"/>
+                                <state key="normal" title="2" backgroundImage="orangeButton.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="holeTwoClick:" destination="2" eventType="touchUpInside" id="MjG-5l-kbE"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" id="IjD-wh-X7P">
+                                <rect key="frame" x="252" y="132" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="40"/>
+                                <state key="normal" title="3" backgroundImage="orangeButton.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="holeThreeClick:" destination="2" eventType="touchUpInside" id="6gq-fd-Dg2"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" id="4MZ-6d-gLX">
+                                <rect key="frame" x="252" y="189" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="40"/>
+                                <state key="normal" title="4" backgroundImage="orangeButton.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="holeFourClick:" destination="2" eventType="touchUpInside" id="Pqx-un-wXL"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" id="qD6-qu-71w">
+                                <rect key="frame" x="252" y="246" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="40"/>
+                                <state key="normal" title="5" backgroundImage="orangeButton.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="holeFiveClick:" destination="2" eventType="touchUpInside" id="86f-v7-YCb"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" id="rAv-7K-axx">
+                                <rect key="frame" x="252" y="302" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="40"/>
+                                <state key="normal" title="6" backgroundImage="orangeButton.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="holeSixClick:" destination="2" eventType="touchUpInside" id="EWQ-SZ-6bl"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" id="11F-n7-pVT">
+                                <rect key="frame" x="252" y="359" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="40"/>
+                                <state key="normal" title="7" backgroundImage="orangeButton.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="holeSevenClick:" destination="2" eventType="touchUpInside" id="vso-ir-ZFL"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" id="aD1-eE-2wd">
+                                <rect key="frame" x="252" y="415" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="40"/>
+                                <state key="normal" title="8" backgroundImage="orangeButton.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="holeEightClick:" destination="2" eventType="touchUpInside" id="5kE-2F-Hlo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="wordWrap" id="EYi-3C-uQ4">
+                                <rect key="frame" x="106" y="172" width="108" height="108"/>
+                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="65"/>
+                                <state key="normal" title="NEW" backgroundImage="silverButton.png">
+                                    <color key="titleColor" red="0.73932150135869568" green="0.0" blue="0.19408635601709423" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextTurnClick:" destination="2" eventType="touchUpInside" id="nBO-gb-HBQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eMg-Bj-Lcc">
+                                <rect key="frame" x="106" y="319" width="108" height="30"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="36" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Qi-EY-wES">
+                                <rect key="frame" x="20" y="20" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="36" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xhw-IV-Tf4">
+                                <rect key="frame" x="20" y="76" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="36" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Uyk-Su-uuR">
+                                <rect key="frame" x="20" y="133" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="36" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IZl-Pb-cww">
+                                <rect key="frame" x="20" y="190" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="40" text="36" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d90-90-rLN">
+                                <rect key="frame" x="20" y="246" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="40" text="36" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Aph-M8-kMM">
+                                <rect key="frame" x="20" y="302" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="40" text="36" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5XE-mL-TdY">
+                                <rect key="frame" x="20" y="359" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="40" text="36" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l0x-zC-uzY">
+                                <rect key="frame" x="20" y="415" width="48" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="AdamZapplCropped.png" id="5kk-9K-bxi">
+                                <rect key="frame" x="100" y="400" width="120" height="60"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="OchoLogo.png" id="zb6-tm-GBw">
+                                <rect key="frame" x="100" y="20" width="120" height="80"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="69i-O4-rhz">
+                                <rect key="frame" x="106" y="449" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="settingsImage.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="h6R-k3-3gm" kind="modal" identifier="Options" modalTransitionStyle="coverVertical" id="Wxh-tH-9Xv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TOTAL SCORE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="75F-cg-vjz">
+                                <rect key="frame" x="90" y="288" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text=" 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ML3-ZC-Zkn">
+                                <rect key="frame" x="95" y="109" width="130" height="48"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="36"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="88 " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KMo-O1-NTa">
+                                <rect key="frame" x="95" y="109" width="130" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="36"/>
+                                <color key="textColor" red="0.76862752440000004" green="0.094117656349999995" blue="0.078431375319999996" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9bT-9t-5nG">
+                                <rect key="frame" x="112" y="357" width="96" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                                <state key="normal" title="NEW GAME" backgroundImage="silverRectButton.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="newGameClick:" destination="2" eventType="touchUpInside" id="4uh-xr-JRD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6uW-Lv-2M9">
+                                <rect key="frame" x="145" y="450" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="helpButton.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="PeM-ew-ehD" kind="modal" identifier="DisplayHelp" id="j3Q-ws-VwJ"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="gI1-l3-2oZ">
+                                <rect key="frame" x="142" y="207" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xTc-Wk-Crv">
+                                <rect key="frame" x="184" y="450" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="upgradeButton.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="offerUpgrade:" destination="2" eventType="touchUpInside" id="ItD-Vl-g5E"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="gI1-l3-2oZ" id="shJ-xl-pe6"/>
+                        <outlet property="emptyHole1" destination="BeO-sh-Lhm" id="tlX-DE-PhG"/>
+                        <outlet property="emptyHole2" destination="f9P-F1-5bR" id="WQ2-ov-a1J"/>
+                        <outlet property="emptyHole3" destination="P3m-eX-8cd" id="TVu-Xf-9H2"/>
+                        <outlet property="emptyHole4" destination="14Y-AI-T9U" id="kIF-3n-aXM"/>
+                        <outlet property="emptyHole5" destination="O5B-CG-sdk" id="TTw-28-pZj"/>
+                        <outlet property="emptyHole6" destination="kE4-XW-MVu" id="Qzd-fy-W5i"/>
+                        <outlet property="emptyHole7" destination="OU9-ri-Vs6" id="ehT-Vt-mdW"/>
+                        <outlet property="emptyHole8" destination="dy3-fa-zMX" id="fHE-gv-z9h"/>
+                        <outlet property="emptyHoleLabel1" destination="h1L-V0-mDe" id="91W-8A-WRg"/>
+                        <outlet property="emptyHoleLabel2" destination="kIn-CM-HnL" id="6Ia-oC-VZe"/>
+                        <outlet property="emptyHoleLabel3" destination="3NC-8N-zcH" id="Lhj-ds-yYr"/>
+                        <outlet property="emptyHoleLabel4" destination="nll-qc-g4L" id="8es-xU-y8B"/>
+                        <outlet property="emptyHoleLabel5" destination="pFO-FL-j1S" id="cBe-ba-U06"/>
+                        <outlet property="emptyHoleLabel6" destination="0S5-lZ-cz6" id="S4z-bL-2DT"/>
+                        <outlet property="emptyHoleLabel7" destination="LdX-L4-C1r" id="Td1-Td-QAr"/>
+                        <outlet property="emptyHoleLabel8" destination="Ncs-vd-iHM" id="tpH-gq-7uK"/>
+                        <outlet property="frame1Score" destination="1Qi-EY-wES" id="5Ki-Ij-DvF"/>
+                        <outlet property="frame2Score" destination="Xhw-IV-Tf4" id="coO-Ig-6gN"/>
+                        <outlet property="frame3Score" destination="Uyk-Su-uuR" id="jZ7-9H-vLx"/>
+                        <outlet property="frame4Score" destination="IZl-Pb-cww" id="y0r-5n-T6s"/>
+                        <outlet property="frame5Score" destination="d90-90-rLN" id="n9V-UK-r7C"/>
+                        <outlet property="frame6Score" destination="Aph-M8-kMM" id="tbt-ln-7mB"/>
+                        <outlet property="frame7Score" destination="5XE-mL-TdY" id="6p4-gn-Pl7"/>
+                        <outlet property="frame8Score" destination="l0x-zC-uzY" id="14B-ve-Taw"/>
+                        <outlet property="frameScoreText" destination="EYi-3C-uQ4" id="hp4-2l-NNS"/>
+                        <outlet property="frameScores" destination="5XE-mL-TdY" id="wfF-Rk-W4I"/>
+                        <outlet property="hole1" destination="n7G-qg-Xjw" id="r7u-to-W3l"/>
+                        <outlet property="hole2" destination="iJO-yt-4fE" id="fh9-vM-Sh0"/>
+                        <outlet property="hole3" destination="IjD-wh-X7P" id="tEu-MM-FsE"/>
+                        <outlet property="hole4" destination="4MZ-6d-gLX" id="e4v-rp-8kd"/>
+                        <outlet property="hole5" destination="qD6-qu-71w" id="WpY-EU-SB2"/>
+                        <outlet property="hole6" destination="rAv-7K-axx" id="akh-px-Vax"/>
+                        <outlet property="hole7" destination="11F-n7-pVT" id="vCJ-ER-POd"/>
+                        <outlet property="hole8" destination="aD1-eE-2wd" id="Yrb-0S-uKW"/>
+                        <outlet property="pointsToGoText" destination="KMo-O1-NTa" id="D0W-Ap-GPT"/>
+                        <outlet property="roundScoreText" destination="ML3-ZC-Zkn" id="zM6-dG-vEY"/>
+                        <outlet property="totalScoreText" destination="eMg-Bj-Lcc" id="ZS9-Ia-OzD"/>
+                        <segue destination="YJ3-AA-ft5" kind="modal" identifier="GameOver" modalTransitionStyle="crossDissolve" id="G5W-Nb-l8l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-167" y="-1"/>
+        </scene>
+        <!--Options View Controller-->
+        <scene sceneID="CiA-3b-tMc">
+            <objects>
+                <viewController id="h6R-k3-3gm" customClass="OptionsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c3Z-tw-Bka">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="AdamZapplCropped.png" id="WEk-FN-Juk">
+                                <rect key="frame" x="100" y="400" width="120" height="60"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="OchoLogo.png" id="yoM-NW-k4f">
+                                <rect key="frame" x="100" y="20" width="120" height="80"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DSA-LP-1Ot">
+                                <rect key="frame" x="20" y="357" width="108" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="RETURN" backgroundImage="silverRectButton.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="apply:" destination="h6R-k3-3gm" eventType="touchUpInside" id="9w2-b6-BO5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Flip Display" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="peu-Ci-GKO">
+                                <rect key="frame" x="20" y="143" width="200" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="YGc-Tu-Tno">
+                                <rect key="frame" x="223" y="143" width="79" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="1" green="0.47966343839999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </switch>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Unlimited Rounds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AwP-6W-jRN">
+                                <rect key="frame" x="20" y="322" width="200" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Player Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0BV-K9-ERY">
+                                <rect key="frame" x="20" y="108" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="ayv-De-wbJ">
+                                <rect key="frame" x="223" y="322" width="79" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="1" green="0.47966343839999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sounds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hhe-bH-w4U">
+                                <rect key="frame" x="20" y="178" width="200" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Coin Set" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h1X-88-sEN">
+                                <rect key="frame" x="20" y="229" width="200" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="SRv-fA-JMq">
+                                <rect key="frame" x="223" y="178" width="79" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="onTintColor" red="1" green="0.47966343839999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </switch>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Adam Zappl" borderStyle="roundedRect" textAlignment="center" minimumFontSize="10" clearButtonMode="always" id="6Ix-Mr-MOI">
+                                <rect key="frame" x="160" y="108" width="140" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="setNewPlayerName:" destination="h6R-k3-3gm" eventType="editingDidEndOnExit" id="uAC-OS-MKb"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="z4m-Sa-oMc">
+                                <rect key="frame" x="192" y="357" width="108" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="HIGH SCORES" backgroundImage="silverRectButton.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="T6r-Xq-9X9" kind="modal" identifier="DisplayHighScores" modalTransitionStyle="coverVertical" id="KEU-jC-wA8"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Q8W-9P-m2w">
+                                <rect key="frame" x="136" y="213" width="164" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ygd-a2-6j6">
+                                        <rect key="frame" x="8" y="112" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="30"/>
+                                        <state key="normal" title="8" backgroundImage="pinkButton.png">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectPink:" destination="h6R-k3-3gm" eventType="touchUpInside" id="t1I-89-3lh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Z2T-Sw-Pgc">
+                                        <rect key="frame" x="112" y="112" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="30"/>
+                                        <state key="normal" title="8" backgroundImage="orangeButton.png">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectOrange:" destination="h6R-k3-3gm" eventType="touchUpInside" id="d66-Ya-ghc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Pgv-BM-SZD">
+                                        <rect key="frame" x="8" y="60" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="30"/>
+                                        <state key="normal" title="8" backgroundImage="purpleButton.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectPurple:" destination="h6R-k3-3gm" eventType="touchUpInside" id="QyF-xB-LNs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="P4g-cg-KGn">
+                                        <rect key="frame" x="60" y="112" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="30"/>
+                                        <state key="normal" title="8" backgroundImage="blueButton.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectBlue:" destination="h6R-k3-3gm" eventType="touchUpInside" id="Fqx-Uc-cuY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UzT-tX-Fd9">
+                                        <rect key="frame" x="112" y="60" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="30"/>
+                                        <state key="normal" title="8" backgroundImage="redButton.png">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectRed:" destination="h6R-k3-3gm" eventType="touchUpInside" id="tQ8-AI-cB1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TdS-nI-WNa">
+                                        <rect key="frame" x="112" y="8" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="30"/>
+                                        <state key="normal" title="8" backgroundImage="greenButton.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectGreen:" destination="h6R-k3-3gm" eventType="touchUpInside" id="Ip1-hl-U2r"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Dmx-7W-9Wz">
+                                        <rect key="frame" x="60" y="8" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="30"/>
+                                        <state key="normal" title="8" backgroundImage="grayButton.png">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectGray:" destination="h6R-k3-3gm" eventType="touchUpInside" id="Gnt-fT-g0P"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="82o-00-TXY">
+                                        <rect key="frame" x="60" y="60" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="30"/>
+                                        <state key="normal" title="8" backgroundImage="yellowButton.png">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectYellow:" destination="h6R-k3-3gm" eventType="touchUpInside" id="mGI-z2-cgh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ThV-EJ-pxB">
+                                        <rect key="frame" x="8" y="8" width="44" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="30"/>
+                                        <state key="normal" title="8" backgroundImage="blackButton.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectBlack:" destination="h6R-k3-3gm" eventType="touchUpInside" id="Axk-6F-mNP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="coinSetScroll" destination="Q8W-9P-m2w" id="2P9-kv-TCf"/>
+                        <outlet property="flipDisplaySwitch" destination="YGc-Tu-Tno" id="6QL-2p-4wx"/>
+                        <outlet property="playerNameEntry" destination="6Ix-Mr-MOI" id="BJ1-pf-gkQ"/>
+                        <outlet property="soundSwitch" destination="SRv-fA-JMq" id="nAf-Bb-6VJ"/>
+                        <outlet property="unlimitedRoundsSwitch" destination="ayv-De-wbJ" id="cPg-Es-UWT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Shh-rX-Xam" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="306" y="-293"/>
+        </scene>
+        <!--Ocho Help View Controller-->
+        <scene sceneID="Ic9-7M-3pf">
+            <objects>
+                <viewController id="PeM-ew-ehD" customClass="OchoHelpViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LKZ-0Q-Erc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="AdamZapplCropped.png" id="kfh-Ev-ckM">
+                                <rect key="frame" x="100" y="400" width="120" height="60"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UwN-u1-Sa8">
+                                <rect key="frame" x="106" y="356" width="108" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="RETURN" backgroundImage="silverRectButton.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissHelp:" destination="PeM-ew-ehD" eventType="touchUpInside" id="wKJ-OP-TPw"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" editable="NO" usesAttributedText="YES" id="ZlZ-uk-Akp">
+                                <rect key="frame" x="20" y="20" width="280" height="328"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">The object of Ocho is simple: to score as many points as you can. This is done by tossing 8 coins numbered 1 through 8 into 8 numbered cups. Start by tapping the big coin that says "Toss." Each coin lands in a cup. If a coin lands in the matching cup, it lights up. The big coin shows the total value of all matching coins. You can either keep that total as your score for this turn by tapping the big coin or toss the non-matching coins again by giving back one match. You give back a match and toss again by tapping one of the matching coins. Obviously it is best to give back your lowest matching coin. The turn continues until you either keep the score or run out of matches to give back. Your score for that turn is recorded in the next score box and added to your total score. You start the next turn by tapping the big coin again. You get 8 turns to complete a round and here is the important part: </string>
+                                        <attributes>
+                                            <color key="NSBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="NSColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="18" name="Optima-Regular"/>
+                                            <font key="NSOriginalFont" size="12" name="Helvetica-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">if your total for the round is at least 88 then you get to continue with another round. If it is less than 88 then the game is over</string>
+                                        <attributes>
+                                            <color key="NSBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="NSColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="18" name="Optima-ExtraBlack"/>
+                                            <font key="NSOriginalFont" size="14" name="Arial-BoldMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=". ">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="NSColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="18" name="Optima-Regular"/>
+                                            <font key="NSOriginalFont" size="14" name="Arial-BoldMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="The box above the big coin shows your round total on the left in ">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="NSColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="18" name="Optima-Regular"/>
+                                            <font key="NSOriginalFont" size="12" name="Helvetica-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="white">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="NSColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="18" name="Optima-ExtraBlack"/>
+                                            <font key="NSOriginalFont" size="12" name="Helvetica-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" and the number of points you need to get to 88 on the right in ">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="NSColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="18" name="Optima-Regular"/>
+                                            <font key="NSOriginalFont" size="12" name="Helvetica-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="red">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="NSColor" red="0.67805325255102034" green="0.0" blue="0.0073575601403617664" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="18" name="Optima-ExtraBlack"/>
+                                            <font key="NSOriginalFont" size="18" name="Optima-ExtraBlack"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">.
+That's it. Play as many rounds as you can and get the highest total score you can. But beware, it's hard to stop playing!</string>
+                                        <attributes>
+                                            <color key="NSBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="NSColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="18" name="Optima-Regular"/>
+                                            <font key="NSOriginalFont" size="12" name="Helvetica-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sr6-48-tet" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="-293"/>
+        </scene>
+        <!--High Scores View Controller-->
+        <scene sceneID="dk0-Am-cMX">
+            <objects>
+                <viewController id="T6r-Xq-9X9" customClass="HighScoresViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6z9-1t-z7h">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QUV-dc-RpJ">
+                                <rect key="frame" x="20" y="64" width="106" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W2c-xI-gze">
+                                <rect key="frame" x="134" y="64" width="70" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Rounds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ltL-5q-W2G">
+                                <rect key="frame" x="230" y="64" width="70" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fvD-M1-lo8">
+                                <rect key="frame" x="20" y="96" width="106" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Uel-7a-T9r">
+                                <rect key="frame" x="134" y="96" width="70" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Round" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i62-AM-W5N">
+                                <rect key="frame" x="230" y="96" width="70" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zwy-pk-ZWJ">
+                                <rect key="frame" x="20" y="128" width="106" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wg6-pG-iRz">
+                                <rect key="frame" x="134" y="128" width="70" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Round" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gjk-GY-Y3O">
+                                <rect key="frame" x="230" y="128" width="70" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lXe-cb-CL3">
+                                <rect key="frame" x="20" y="160" width="106" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eh8-ma-IlE">
+                                <rect key="frame" x="134" y="160" width="70" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Round" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="utX-Ln-45r">
+                                <rect key="frame" x="230" y="160" width="70" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eXz-hs-OJC">
+                                <rect key="frame" x="20" y="192" width="106" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="klY-Y2-Phz">
+                                <rect key="frame" x="134" y="192" width="70" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Round" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M2b-ur-Ve5">
+                                <rect key="frame" x="230" y="192" width="70" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YHQ-Xu-BRO">
+                                <rect key="frame" x="20" y="224" width="106" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kma-3R-3le">
+                                <rect key="frame" x="134" y="224" width="70" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Round" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eBh-PF-brj">
+                                <rect key="frame" x="230" y="224" width="70" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Gm-sA-5kY">
+                                <rect key="frame" x="20" y="256" width="106" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aJX-wb-QAs">
+                                <rect key="frame" x="134" y="256" width="70" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Round" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W03-gK-Gg1">
+                                <rect key="frame" x="230" y="256" width="70" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="66w-0g-ctg">
+                                <rect key="frame" x="20" y="288" width="106" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aqo-lr-wM8">
+                                <rect key="frame" x="20" y="320" width="106" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eYi-06-bQa">
+                                <rect key="frame" x="134" y="320" width="70" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Round" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q9x-0v-kf3">
+                                <rect key="frame" x="230" y="320" width="70" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8bk-pL-zfK">
+                                <rect key="frame" x="134" y="288" width="70" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Round" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W7x-Af-6C6">
+                                <rect key="frame" x="230" y="288" width="70" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="345-YZ-dOc">
+                                <rect key="frame" x="20" y="357" width="108" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="RETURN" backgroundImage="silverRectButton.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissHighScores:" destination="T6r-Xq-9X9" eventType="touchUpInside" id="KtY-eY-YCI"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="AdamZapplCropped.png" id="0qB-ha-iVu">
+                                <rect key="frame" x="100" y="400" width="120" height="60"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Fp7-qZ-4r3">
+                                <rect key="frame" x="192" y="357" width="108" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="RESET" backgroundImage="silverRectButton.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetHighScores:" destination="T6r-Xq-9X9" eventType="touchUpInside" id="rTv-9V-LPY"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="zR8-mn-DUw">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <segments>
+                                    <segment title="High Scores"/>
+                                    <segment title="High Single Rounds"/>
+                                </segments>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="switchSegment:" destination="T6r-Xq-9X9" eventType="valueChanged" id="sJb-GN-Ena"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="HIGH SCORES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="s6H-7g-YLo">
+                                <rect key="frame" x="50" y="31" width="220" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="name1" destination="fvD-M1-lo8" id="Yqq-h2-Kv1"/>
+                        <outlet property="name2" destination="zwy-pk-ZWJ" id="dfo-Mm-I7h"/>
+                        <outlet property="name3" destination="lXe-cb-CL3" id="FMU-Qf-g8h"/>
+                        <outlet property="name4" destination="eXz-hs-OJC" id="ZVq-tA-795"/>
+                        <outlet property="name5" destination="YHQ-Xu-BRO" id="Gaz-HX-hNu"/>
+                        <outlet property="name6" destination="9Gm-sA-5kY" id="OyZ-zo-Rug"/>
+                        <outlet property="name7" destination="66w-0g-ctg" id="rhF-eI-BhY"/>
+                        <outlet property="name8" destination="aqo-lr-wM8" id="8kW-ZE-fmt"/>
+                        <outlet property="nameColumn" destination="QUV-dc-RpJ" id="tJg-80-a15"/>
+                        <outlet property="pageName" destination="s6H-7g-YLo" id="frx-K8-tB3"/>
+                        <outlet property="round1" destination="i62-AM-W5N" id="mhF-4N-o3z"/>
+                        <outlet property="round2" destination="Gjk-GY-Y3O" id="IMa-n9-TX3"/>
+                        <outlet property="round3" destination="utX-Ln-45r" id="DmB-3K-yJi"/>
+                        <outlet property="round4" destination="M2b-ur-Ve5" id="wJX-cq-qgo"/>
+                        <outlet property="round5" destination="eBh-PF-brj" id="fI4-jS-st3"/>
+                        <outlet property="round6" destination="W03-gK-Gg1" id="5i8-WY-cQX"/>
+                        <outlet property="round7" destination="W7x-Af-6C6" id="UGM-TG-osz"/>
+                        <outlet property="round8" destination="Q9x-0v-kf3" id="jpe-e6-9Z2"/>
+                        <outlet property="roundColumn" destination="ltL-5q-W2G" id="Nnm-E5-hb5"/>
+                        <outlet property="score1" destination="Uel-7a-T9r" id="ICq-eT-ORl"/>
+                        <outlet property="score2" destination="wg6-pG-iRz" id="SSF-ZZ-EAB"/>
+                        <outlet property="score3" destination="eh8-ma-IlE" id="Z8G-tg-WIm"/>
+                        <outlet property="score4" destination="klY-Y2-Phz" id="yTr-Uf-coT"/>
+                        <outlet property="score5" destination="Kma-3R-3le" id="2ai-Ud-iSU"/>
+                        <outlet property="score6" destination="aJX-wb-QAs" id="Y5X-Ec-P5L"/>
+                        <outlet property="score7" destination="8bk-pL-zfK" id="Kby-4v-Ngy"/>
+                        <outlet property="score8" destination="eYi-06-bQa" id="TcB-vg-j7q"/>
+                        <outlet property="scoreColumn" destination="W2c-xI-gze" id="WFl-g0-8N2"/>
+                        <outlet property="segmentSelector" destination="zR8-mn-DUw" id="l6N-7G-WDg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zuZ-cP-8JU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="310"/>
+        </scene>
+        <!--Game Over View Controller-->
+        <scene sceneID="RRh-ik-byR">
+            <objects>
+                <viewController id="YJ3-AA-ft5" customClass="GameOverViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2NI-7w-oJD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8TY-FC-ZgX">
+                                <rect key="frame" x="20" y="357" width="108" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="NEW GAME" backgroundImage="silverRectButton.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissGameOver:" destination="YJ3-AA-ft5" eventType="touchUpInside" id="C7Z-bi-u3D"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="AdamZapplCropped.png" id="sF0-Kz-5FG">
+                                <rect key="frame" x="100" y="400" width="120" height="60"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Emo-45-BzB">
+                                <rect key="frame" x="192" y="108" width="108" height="30"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Total Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Eoa-1w-CjO">
+                                <rect key="frame" x="20" y="108" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Rounds Completed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HA5-DL-XdI">
+                                <rect key="frame" x="20" y="150" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Best Round" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VUx-yL-Qi1">
+                                <rect key="frame" x="20" y="188" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Closest Call" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YI8-rw-htu">
+                                <rect key="frame" x="20" y="226" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="OchoLogo.png" id="Cst-uM-hVD">
+                                <rect key="frame" x="100" y="20" width="120" height="80"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="87J-aH-bWh">
+                                <rect key="frame" x="192" y="188" width="108" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Irr-pv-jGf">
+                                <rect key="frame" x="192" y="226" width="108" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UIo-qN-jHD">
+                                <rect key="frame" x="192" y="150" width="108" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IJr-FU-yxL">
+                                <rect key="frame" x="192" y="357" width="108" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="HIGH SCORES" backgroundImage="silverRectButton.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="T6r-Xq-9X9" kind="modal" identifier="DisplayHighScores" modalTransitionStyle="coverVertical" id="oxl-Y4-pMn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Rit-m8-4Q1">
+                                <rect key="frame" x="0.0" y="437" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="tweetButton.png">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tweetScore:" destination="YJ3-AA-ft5" eventType="touchUpInside" id="5zz-Fu-gaD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xbA-7N-maq">
+                                <rect key="frame" x="276" y="437" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="facebookButton.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookScore:" destination="YJ3-AA-ft5" eventType="touchUpInside" id="Fwe-FG-VwN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="bestRoundText" destination="87J-aH-bWh" id="TJo-2G-3Kt"/>
+                        <outlet property="closestCallText" destination="Irr-pv-jGf" id="W6B-3K-5iL"/>
+                        <outlet property="finalScoreText" destination="Emo-45-BzB" id="6yg-ZE-DmV"/>
+                        <outlet property="roundNumberText" destination="UIo-qN-jHD" id="tDf-De-TQG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Xt-sf-sDi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="306" y="310"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="AdamZapplCropped.png" width="1087" height="227"/>
+        <image name="OchoLogo.png" width="1024" height="1024"/>
+        <image name="blackButton.png" width="300" height="300"/>
+        <image name="blueButton.png" width="300" height="300"/>
+        <image name="facebookButton.png" width="320" height="320"/>
+        <image name="grayButton.png" width="300" height="300"/>
+        <image name="greenButton.png" width="300" height="300"/>
+        <image name="helpButton.png" width="210" height="210"/>
+        <image name="orangeButton.png" width="300" height="300"/>
+        <image name="pinkButton.png" width="300" height="300"/>
+        <image name="purpleButton.png" width="300" height="300"/>
+        <image name="redButton.png" width="300" height="300"/>
+        <image name="settingsImage.png" width="256" height="256"/>
+        <image name="silverButton.png" width="256" height="256"/>
+        <image name="silverRectButton.png" width="100" height="49"/>
+        <image name="tweetButton.png" width="460" height="460"/>
+        <image name="upgradeButton.png" width="200" height="202"/>
+        <image name="yellowButton.png" width="300" height="300"/>
+    </resources>
+    <classes>
+        <class className="GameOverViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameOverViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissGameOver:"/>
+                <relationship kind="action" name="facebookScore:"/>
+                <relationship kind="action" name="tweetScore:"/>
+                <relationship kind="outlet" name="bestRoundText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="closestCallText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="finalScoreText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="roundNumberText" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="HighScoresViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HighScoresViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissHighScores:"/>
+                <relationship kind="action" name="resetHighScores:"/>
+                <relationship kind="action" name="switchSegment:"/>
+                <relationship kind="outlet" name="name1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name3" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name4" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name5" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name6" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name7" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="name8" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameColumn" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pageName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="round1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="round2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="round3" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="round4" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="round5" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="round6" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="round7" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="round8" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="roundColumn" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="score1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="score2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="score3" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="score4" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="score5" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="score6" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="score7" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="score8" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scoreColumn" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="segmentSelector" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="OchoHelpViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OchoHelpViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissHelp:"/>
+            </relationships>
+        </class>
+        <class className="OchoSimpleViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OchoSimpleViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="holeEightClick:"/>
+                <relationship kind="action" name="holeFiveClick:"/>
+                <relationship kind="action" name="holeFourClick:"/>
+                <relationship kind="action" name="holeOneClick:"/>
+                <relationship kind="action" name="holeSevenClick:"/>
+                <relationship kind="action" name="holeSixClick:"/>
+                <relationship kind="action" name="holeThreeClick:"/>
+                <relationship kind="action" name="holeTwoClick:"/>
+                <relationship kind="action" name="newGameClick:"/>
+                <relationship kind="action" name="nextTurnClick:"/>
+                <relationship kind="action" name="offerUpgrade:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="emptyHole1" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="emptyHole2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="emptyHole3" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="emptyHole4" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="emptyHole5" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="emptyHole6" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="emptyHole7" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="emptyHole8" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="emptyHoleLabel1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emptyHoleLabel2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emptyHoleLabel3" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emptyHoleLabel4" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emptyHoleLabel5" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emptyHoleLabel6" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emptyHoleLabel7" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emptyHoleLabel8" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="frame1Score" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="frame2Score" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="frame3Score" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="frame4Score" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="frame5Score" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="frame6Score" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="frame7Score" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="frame8Score" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="frameScoreText" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="hole1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="hole2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="hole3" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="hole4" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="hole5" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="hole6" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="hole7" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="hole8" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pointsToGoText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="roundScoreText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="totalScoreText" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="OptionsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="apply:"/>
+                <relationship kind="action" name="selectBlack:"/>
+                <relationship kind="action" name="selectBlue:"/>
+                <relationship kind="action" name="selectGray:"/>
+                <relationship kind="action" name="selectGreen:"/>
+                <relationship kind="action" name="selectOrange:"/>
+                <relationship kind="action" name="selectPink:"/>
+                <relationship kind="action" name="selectPurple:"/>
+                <relationship kind="action" name="selectRed:"/>
+                <relationship kind="action" name="selectYellow:"/>
+                <relationship kind="action" name="setNewPlayerName:"/>
+                <relationship kind="outlet" name="coinSetScroll" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="flipDisplaySwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="playerNameEntry" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="soundSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="unlimitedRoundsSwitch" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="KEU-jC-wA8"/>
+    </inferredMetricsTieBreakers>
+</document>

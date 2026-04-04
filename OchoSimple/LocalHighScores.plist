@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <dict>
+            <key>name</key>  <string>Adam Zappl</string>
+            <key>score</key>  <string>80</string>
+            <key>round</key>  <string>1</string>
+        </dict>
+        <dict>
+            <key>name</key>  <string>Adam Zappl</string>
+            <key>score</key>  <string>70</string>
+            <key>round</key>  <string>1</string>
+        </dict>
+        <dict>
+            <key>name</key>  <string>Adam Zappl</string>
+            <key>score</key>  <string>60</string>
+            <key>round</key>  <string>1</string>
+        </dict>
+        <dict>
+            <key>name</key>  <string>Adam Zappl</string>
+            <key>score</key>  <string>50</string>
+            <key>round</key>  <string>1</string>
+        </dict>
+        <dict>
+            <key>name</key>  <string>Adam Zappl</string>
+            <key>score</key>  <string>40</string>
+            <key>round</key>  <string>1</string>
+        </dict>
+        <dict>
+            <key>name</key>  <string>Adam Zappl</string>
+            <key>score</key>  <string>30</string>
+            <key>round</key>  <string>1</string>
+        </dict>
+        <dict>
+            <key>name</key>  <string>Adam Zappl</string>
+            <key>score</key>  <string>20</string>
+            <key>round</key>  <string>1</string>
+        </dict>
+        <dict>
+            <key>name</key>  <string>Adam Zappl</string>
+            <key>score</key>  <string>10</string>
+            <key>round</key>  <string>1</string>
+        </dict>
+    </array>
+</plist>

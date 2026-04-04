@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>unlimitedRounds</key>
+	<string>NO</string>
+	<key>freeRounds</key>
+	<string>0</string>
+	<key>flipDisplay</key>
+	<string>NO</string>
+	<key>playerName</key>
+	<string>Adam Zappl</string>
+	<key>sound</key>
+	<string>YES</string>
+</dict>
+</plist>
