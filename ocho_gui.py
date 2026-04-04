@@ -1,6 +1,8 @@
 import random
+import json
+from pathlib import Path
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import messagebox, simpledialog
 
 
 class OchoGame:
@@ -87,11 +89,15 @@ class OchoGame:
 
 
 class OchoApp:
+    HIGH_SCORE_LIMIT = 10
+
     def __init__(self, root: tk.Tk):
         self.root = root
         self.root.title("OCHO")
 
         self.game = OchoGame(max_turns=10)
+        self.high_scores_file = Path(__file__).with_name("ocho_high_scores.json")
+        self.high_scores = self._load_high_scores()
 
         title = tk.Label(root, text="Welcome to OCHO", font=("Helvetica", 16, "bold"))
         title.pack(pady=(10, 5))
@@ -105,33 +111,101 @@ class OchoApp:
         self.status_label = tk.Label(root, text="Click a green matched hole to give it back and roll again.")
         self.status_label.pack(pady=(5, 10))
 
-        self.grid_frame = tk.Frame(root)
-        self.grid_frame.pack(padx=10, pady=10)
+        self.gameplay_frame = tk.Frame(root)
+        self.gameplay_frame.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
+
+        left_panel = tk.Frame(self.gameplay_frame)
+        left_panel.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+        holes_panel = tk.Frame(self.gameplay_frame)
+        holes_panel.pack(side=tk.RIGHT, padx=(10, 0))
 
         self.hole_buttons = []
         for i in range(8):
             btn = tk.Button(
-                self.grid_frame,
+                holes_panel,
                 text="",
                 width=20,
                 height=2,
                 command=lambda idx=i: self.on_hole_click(idx),
             )
-            btn.grid(row=i // 4, column=i % 4, padx=5, pady=5)
+            btn.grid(row=i, column=0, padx=5, pady=5, sticky="ew")
             self.hole_buttons.append(btn)
 
-        controls = tk.Frame(root)
-        controls.pack(pady=(5, 10))
-
         self.end_turn_btn = tk.Button(
-            controls,
+            left_panel,
             text="End Turn",
             command=self.end_turn,
             width=14,
+            height=8,
+            font=("Helvetica", 16, "bold"),
         )
-        self.end_turn_btn.grid(row=0, column=0, padx=5)
+        self.end_turn_btn.pack(expand=True)
+
+        self.high_score_label = tk.Label(
+            root,
+            text="",
+            justify=tk.LEFT,
+            anchor="w",
+            font=("Courier", 10),
+        )
+        self.high_score_label.pack(fill=tk.X, padx=10, pady=(0, 10))
 
         self.update_view(after_roll=True)
+        self.update_high_score_view()
+
+    def _load_high_scores(self) -> list[dict[str, float | str]]:
+        if not self.high_scores_file.exists():
+            return []
+        try:
+            data = json.loads(self.high_scores_file.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            return []
+
+        cleaned = []
+        for entry in data:
+            name = str(entry.get("name", "Anonymous")).strip() or "Anonymous"
+            score = float(entry.get("score", 0))
+            cleaned.append({"name": name, "score": score})
+        cleaned.sort(key=lambda x: x["score"], reverse=True)
+        return cleaned[: self.HIGH_SCORE_LIMIT]
+
+    def _save_high_scores(self) -> None:
+        self.high_scores_file.write_text(
+            json.dumps(self.high_scores[: self.HIGH_SCORE_LIMIT], indent=2),
+            encoding="utf-8",
+        )
+
+    def _is_high_score(self, score: float) -> bool:
+        if len(self.high_scores) < self.HIGH_SCORE_LIMIT:
+            return True
+        return score > float(self.high_scores[-1]["score"])
+
+    def _record_high_score(self, score: float) -> None:
+        if not self._is_high_score(score):
+            return
+        name = simpledialog.askstring(
+            "High Score!",
+            f"New top {self.HIGH_SCORE_LIMIT} score: {score:.0f}\nEnter your name:",
+            parent=self.root,
+        )
+        if not name:
+            name = "Anonymous"
+
+        self.high_scores.append({"name": name.strip() or "Anonymous", "score": score})
+        self.high_scores.sort(key=lambda x: x["score"], reverse=True)
+        self.high_scores = self.high_scores[: self.HIGH_SCORE_LIMIT]
+        self._save_high_scores()
+        self.update_high_score_view()
+
+    def update_high_score_view(self) -> None:
+        lines = [f"High Scores (Top {self.HIGH_SCORE_LIMIT})"]
+        if not self.high_scores:
+            lines.append("  No scores yet.")
+        else:
+            for i, entry in enumerate(self.high_scores, start=1):
+                lines.append(f"{i:>2}. {entry['name']:<12} {entry['score']:.0f}")
+        self.high_score_label.config(text="\n".join(lines))
 
     def on_hole_click(self, idx: int) -> None:
         if self.game.hole[idx] == idx + 1:
@@ -151,6 +225,7 @@ class OchoApp:
         started_new_game = self.game.end_turn()
         if started_new_game:
             final_total = prior_total + turn_score
+            self._record_high_score(final_total)
             messagebox.showinfo(
                 "New Game",
                 f"Game Over after 10 turns. Final score: {final_total:.0f}\nStarting a new game.",
