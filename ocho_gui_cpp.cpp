@@ -50,7 +50,10 @@ class OchoGame {
     return true;
   }
 
-  EndTurnResult end_turn() {
+  void roll_again() { roll_balls(); }
+  void start_next_turn() { this->start_new_turn(); }
+
+  EndTurnResult end_turn(bool start_next_turn = true) {
     const double turn_score = current_score();
     total_score_ += turn_score;
     current_round_score_ += turn_score;
@@ -63,14 +66,18 @@ class OchoGame {
         frame_in_round_ = 1;
         round_number_++;
         current_round_score_ = 0.0;
-        start_new_turn();
+        if (start_next_turn) {
+          this->start_new_turn();
+        }
         return {false, true, completed_round_score, true};
       }
       return {true, true, completed_round_score, false};
     }
 
-    start_new_turn();
     frame_in_round_++;
+    if (start_next_turn) {
+      this->start_new_turn();
+    }
     return {false, false, 0.0, false};
   }
 
@@ -99,6 +106,7 @@ class OchoGame {
   double total_score() const { return total_score_; }
   double current_round_score() const { return current_round_score_; }
   const std::array<int, 8>& hole() const { return hole_; }
+  int number_of_matches() const { return number_of_matches_; }
 
  private:
   void reset_board() {
@@ -231,9 +239,9 @@ class OchoGui {
     auto* actions = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 8);
     gtk_box_pack_start(GTK_BOX(outer), actions, FALSE, FALSE, 0);
 
-    auto* end_btn = gtk_button_new_with_label("END FRAME");
-    g_signal_connect(end_btn, "clicked", G_CALLBACK(on_end_frame), this);
-    gtk_box_pack_start(GTK_BOX(actions), end_btn, TRUE, TRUE, 0);
+    end_button_ = gtk_button_new_with_label("END FRAME");
+    g_signal_connect(end_button_, "clicked", G_CALLBACK(on_end_frame), this);
+    gtk_box_pack_start(GTK_BOX(actions), end_button_, TRUE, TRUE, 0);
 
     auto* new_btn = gtk_button_new_with_label("NEW GAME");
     g_signal_connect(new_btn, "clicked", G_CALLBACK(on_new_game), this);
@@ -250,6 +258,7 @@ class OchoGui {
 
   void update_view(bool after_roll) {
     if (after_roll) game_.reload_non_matches();
+    gtk_button_set_label(GTK_BUTTON(end_button_), awaiting_reroll_ ? "ROLL AGAIN" : "END FRAME");
 
     std::ostringstream turn_text;
     turn_text << "Frame " << game_.frame_in_round() << "/8 (Round " << game_.round_number() << ")";
@@ -285,6 +294,11 @@ class OchoGui {
   }
 
   void handle_hole_click(int idx) {
+    if (awaiting_reroll_) {
+      set_status("Frame ended. Click ROLL AGAIN to start the next frame.");
+      return;
+    }
+
     if (game_.hole()[idx] != idx + 1) {
       set_status("That hole is not a match. Choose a highlighted number.");
       return;
@@ -295,13 +309,31 @@ class OchoGui {
       return;
     }
 
+    if (game_.number_of_matches() == 0) {
+      finish_frame(true);
+      return;
+    }
+
     set_status("Returned matched coin and rolled again.");
     update_view(true);
   }
 
   void end_turn() {
+    if (awaiting_reroll_) {
+      awaiting_reroll_ = false;
+      game_.start_next_turn();
+      set_status("Started next frame.");
+      update_view(true);
+      return;
+    }
+
+    finish_frame(false);
+  }
+
+  void finish_frame(bool automatic) {
     const int frame_score = static_cast<int>(game_.current_score());
-    const auto result = game_.end_turn();
+    const int prior_frame = game_.frame_in_round();
+    const auto result = game_.end_turn(false);
 
     if (result.game_over) {
       const double final_total = game_.total_score();
@@ -314,6 +346,7 @@ class OchoGui {
       info_dialog("Game Over", msg.str());
 
       game_.reset_game();
+      awaiting_reroll_ = false;
       set_status("New game started.");
       update_view(true);
       return;
@@ -322,16 +355,24 @@ class OchoGui {
     if (result.earned_bonus_round) {
       std::ostringstream msg;
       msg << "Round complete: " << static_cast<int>(result.completed_round_score)
-          << " points in 8 frames. You earned a bonus round!";
+          << " points in 8 frames. You earned a bonus round! Click ROLL AGAIN to continue.";
+      awaiting_reroll_ = true;
       set_status(msg.str());
-      update_view(true);
+      update_view(false);
       return;
     }
 
     std::ostringstream msg;
-    msg << "Ended frame with " << frame_score << " points.";
+    awaiting_reroll_ = true;
+    if (automatic) {
+      msg << "No matches on roll. Frame " << prior_frame << " ended with " << frame_score
+          << " points. Click ROLL AGAIN.";
+    } else {
+      msg << "Ended frame " << prior_frame << " with " << frame_score
+          << " points. Click ROLL AGAIN.";
+    }
     set_status(msg.str());
-    update_view(true);
+    update_view(false);
   }
 
   void new_game() {
@@ -343,6 +384,7 @@ class OchoGui {
     if (response != GTK_RESPONSE_YES) return;
 
     game_.reset_game();
+    awaiting_reroll_ = false;
     set_status("Started a new game.");
     update_view(true);
   }
@@ -450,11 +492,13 @@ class OchoGui {
   GtkWidget* total_label_ = nullptr;
   GtkWidget* round_label_ = nullptr;
   GtkWidget* points_to_go_label_ = nullptr;
+  GtkWidget* end_button_ = nullptr;
   GtkWidget* status_label_ = nullptr;
 
   std::vector<GtkWidget*> hole_buttons_;
   std::vector<GtkWidget*> frame_score_labels_;
   std::array<std::pair<OchoGui*, int>, 8> hole_click_context_{};
+  bool awaiting_reroll_ = false;
 };
 
 int main(int argc, char** argv) {
