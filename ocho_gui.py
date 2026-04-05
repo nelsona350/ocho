@@ -20,7 +20,7 @@ class OchoGame:
         self.number_of_matches = 0
         self.number_of_balls_remaining = 8
 
-        self._start_new_turn()
+        self._reset_board()
 
     def _reset_board(self) -> None:
         self.ball = list(range(1, 9))
@@ -83,7 +83,7 @@ class OchoGame:
         self.round_number = 1
         self.total_score = 0.0
         self.current_round_score = 0.0
-        self._start_new_turn()
+        self._reset_board()
 
     def end_turn(self, start_next_turn: bool = True) -> dict[str, bool | float]:
         turn_score = self.current_score()
@@ -150,8 +150,9 @@ class OchoApp:
 
         self._build_scrollable_root()
         self._build_ui()
-        self.awaiting_reroll = False
-        self.update_view(after_roll=True)
+        self.awaiting_reroll = True
+        self.status_label.config(text="Tap roll again to start frame 1.")
+        self.update_view(after_roll=False)
         self.update_high_score_view()
 
     def _build_scrollable_root(self) -> None:
@@ -443,9 +444,6 @@ class OchoApp:
             self.game.reload_non_matches()
         self.end_turn_btn.config(text="roll again" if self.awaiting_reroll else "end frame")
 
-        self.awaiting_reroll = self.game.number_of_matches == 0
-        self.end_turn_btn.config(text="roll again" if self.awaiting_reroll else "end frame")
-
         round_score = self.game.current_score()
         self.turn_label.config(text=f"Frame {self.game.frame_in_round}/8 (Round {self.game.round_number})")
         self.total_score_label.config(text=f"Total Score: {self.game.total_score:.0f}")
@@ -502,9 +500,9 @@ class OchoApp:
                 ),
             )
             self.game.reset_game()
-            self.awaiting_reroll = False
-            self.status_label.config(text="New game started.")
-            self.update_view(after_roll=True)
+            self.awaiting_reroll = True
+            self.status_label.config(text="New game started. Tap roll again to begin.")
+            self.update_view(after_roll=False)
             return
 
         if bool(end_result["earned_bonus_round"]):
@@ -534,9 +532,9 @@ class OchoApp:
         if not messagebox.askyesno("New Game", "Start a new game and reset score?"):
             return
         self.game.reset_game()
-        self.awaiting_reroll = False
-        self.status_label.config(text="Started a new game.")
-        self.update_view(after_roll=True)
+        self.awaiting_reroll = True
+        self.status_label.config(text="Started a new game. Tap roll again to begin.")
+        self.update_view(after_roll=False)
 
 
 def main() -> None:

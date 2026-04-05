@@ -32,7 +32,7 @@ class OchoGame {
     round_number_ = 1;
     total_score_ = 0.0;
     current_round_score_ = 0.0;
-    start_new_turn();
+    reset_board();
   }
 
   bool return_match_and_roll(int hole_index) {
@@ -168,7 +168,9 @@ class OchoGui {
   OchoGui() {
     load_high_scores();
     build_ui();
-    update_view(true);
+    awaiting_reroll_ = true;
+    set_status("Click ROLL AGAIN to start frame 1.");
+    update_view(false);
   }
 
   void show() { gtk_widget_show_all(window_); }
@@ -346,9 +348,9 @@ class OchoGui {
       info_dialog("Game Over", msg.str());
 
       game_.reset_game();
-      awaiting_reroll_ = false;
-      set_status("New game started.");
-      update_view(true);
+      awaiting_reroll_ = true;
+      set_status("New game started. Click ROLL AGAIN to begin.");
+      update_view(false);
       return;
     }
 
@@ -384,9 +386,9 @@ class OchoGui {
     if (response != GTK_RESPONSE_YES) return;
 
     game_.reset_game();
-    awaiting_reroll_ = false;
-    set_status("Started a new game.");
-    update_view(true);
+    awaiting_reroll_ = true;
+    set_status("Started a new game. Click ROLL AGAIN to begin.");
+    update_view(false);
   }
 
   void show_high_scores() {
