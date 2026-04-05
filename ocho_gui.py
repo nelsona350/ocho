@@ -36,6 +36,9 @@ class OchoGame:
             if self.number_of_matches > 0:
                 return
 
+    def start_next_turn(self) -> None:
+        self._start_new_turn()
+
     def roll_balls(self) -> None:
         for i in range(8):
             if self.hole[i] == 0:
@@ -82,7 +85,7 @@ class OchoGame:
         self.current_round_score = 0.0
         self._start_new_turn()
 
-    def end_turn(self) -> dict[str, bool | float]:
+    def end_turn(self, start_next_turn: bool = True) -> dict[str, bool | float]:
         turn_score = self.current_score()
         self.total_score += turn_score
         self.current_round_score += turn_score
@@ -96,7 +99,8 @@ class OchoGame:
                 self.frame_in_round = 1
                 self.round_number += 1
                 self.current_round_score = 0.0
-                self._start_new_turn()
+                if start_next_turn:
+                    self._start_new_turn()
                 return {
                     "game_over": False,
                     "round_completed": True,
@@ -111,8 +115,9 @@ class OchoGame:
                 "earned_bonus_round": False,
             }
 
-        self._start_new_turn()
         self.frame_in_round += 1
+        if start_next_turn:
+            self._start_new_turn()
         return {
             "game_over": False,
             "round_completed": False,
@@ -145,6 +150,7 @@ class OchoApp:
 
         self._build_scrollable_root()
         self._build_ui()
+        self.awaiting_reroll = False
         self.update_view(after_roll=True)
         self.update_high_score_view()
 
@@ -435,6 +441,7 @@ class OchoApp:
     def update_view(self, after_roll: bool = False) -> None:
         if after_roll:
             self.game.reload_non_matches()
+        self.end_turn_btn.config(text="roll again" if self.awaiting_reroll else "end frame")
 
         round_score = self.game.current_score()
         self.turn_label.config(text=f"Frame {self.game.frame_in_round}/8 (Round {self.game.round_number})")
@@ -447,6 +454,10 @@ class OchoApp:
             self._draw_hole(i, val)
 
     def on_hole_click(self, idx: int) -> None:
+        if self.awaiting_reroll:
+            self.status_label.config(text="Frame ended. Tap roll again to start the next frame.")
+            return
+
         if self.game.hole[idx] != idx + 1:
             self.status_label.config(text=f"Hole {idx + 1} is not a match. Choose a green number.")
             return
@@ -455,14 +466,28 @@ class OchoApp:
             self.status_label.config(text="Invalid selection. Try another matched hole.")
             return
 
+        if self.game.number_of_matches == 0:
+            self._end_frame(automatic=True)
+            return
+
         self.status_label.config(text=f"Returned coin {idx + 1}. Tossed again.")
         self.update_view(after_roll=True)
 
     def end_turn(self) -> None:
+        if self.awaiting_reroll:
+            self.awaiting_reroll = False
+            self.game.start_next_turn()
+            self.status_label.config(text="Started next frame.")
+            self.update_view(after_roll=True)
+            return
+
+        self._end_frame(automatic=False)
+
+    def _end_frame(self, automatic: bool) -> None:
         prior_frame = self.game.turn
         frame_score = self.game.current_score()
 
-        end_result = self.game.end_turn()
+        end_result = self.game.end_turn(start_next_turn=False)
         if bool(end_result["game_over"]):
             final_total = self.game.total_score
             self._record_high_score(final_total)
@@ -474,27 +499,39 @@ class OchoApp:
                 ),
             )
             self.game.reset_game()
+            self.awaiting_reroll = False
             self.status_label.config(text="New game started.")
             self.update_view(after_roll=True)
             return
 
         if bool(end_result["earned_bonus_round"]):
+            self.awaiting_reroll = True
             self.status_label.config(
                 text=(
                     f"Round complete: {float(end_result['completed_round_score']):.0f} points in 8 frames. "
-                    "You earned a bonus round!"
+                    "You earned a bonus round! Tap roll again to continue."
                 )
             )
-            self.update_view(after_roll=True)
+            self.update_view(after_roll=False)
             return
 
-        self.status_label.config(text=f"Ended frame {prior_frame} with {frame_score:.0f} points.")
-        self.update_view(after_roll=True)
+        self.awaiting_reroll = True
+        if automatic:
+            self.status_label.config(
+                text=(
+                    f"No matches on roll. Frame {prior_frame} ended with {frame_score:.0f} points. "
+                    "Tap roll again."
+                )
+            )
+        else:
+            self.status_label.config(text=f"Ended frame {prior_frame} with {frame_score:.0f} points. Tap roll again.")
+        self.update_view(after_roll=False)
 
     def new_game(self) -> None:
         if not messagebox.askyesno("New Game", "Start a new game and reset score?"):
             return
         self.game.reset_game()
+        self.awaiting_reroll = False
         self.status_label.config(text="Started a new game.")
         self.update_view(after_roll=True)
 
