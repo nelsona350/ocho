@@ -145,6 +145,7 @@ class OchoApp:
 
         self._build_scrollable_root()
         self._build_ui()
+        self.awaiting_reroll = False
         self.update_view(after_roll=True)
         self.update_high_score_view()
 
@@ -436,6 +437,9 @@ class OchoApp:
         if after_roll:
             self.game.reload_non_matches()
 
+        self.awaiting_reroll = self.game.number_of_matches == 0
+        self.end_turn_btn.config(text="roll again" if self.awaiting_reroll else "end frame")
+
         round_score = self.game.current_score()
         self.turn_label.config(text=f"Frame {self.game.frame_in_round}/8 (Round {self.game.round_number})")
         self.total_score_label.config(text=f"Total Score: {self.game.total_score:.0f}")
@@ -459,6 +463,12 @@ class OchoApp:
         self.update_view(after_roll=True)
 
     def end_turn(self) -> None:
+        if self.awaiting_reroll:
+            self.game.roll_balls()
+            self.status_label.config(text="No matches. Rolled again.")
+            self.update_view(after_roll=True)
+            return
+
         prior_frame = self.game.turn
         frame_score = self.game.current_score()
 
