@@ -52,6 +52,7 @@ class OchoGame {
 
   void roll_again() { roll_balls(); }
   void start_next_turn() { this->start_new_turn(); }
+  void clear_board_for_next_turn() { reset_board(); }
 
   EndTurnResult end_turn(bool start_next_turn = true) {
     const double turn_score = current_score();
@@ -355,6 +356,7 @@ class OchoGui {
     }
 
     if (result.earned_bonus_round) {
+      game_.clear_board_for_next_turn();
       std::ostringstream msg;
       msg << "Round complete: " << static_cast<int>(result.completed_round_score)
           << " points in 8 frames. You earned a bonus round! Click ROLL AGAIN to continue.";
@@ -366,6 +368,7 @@ class OchoGui {
 
     std::ostringstream msg;
     awaiting_reroll_ = true;
+    game_.clear_board_for_next_turn();
     if (automatic) {
       msg << "No matches on roll. Frame " << prior_frame << " ended with " << frame_score
           << " points. Click ROLL AGAIN.";

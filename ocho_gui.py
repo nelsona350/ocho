@@ -39,6 +39,9 @@ class OchoGame:
     def start_next_turn(self) -> None:
         self._start_new_turn()
 
+    def clear_board_for_next_turn(self) -> None:
+        self._reset_board()
+
     def roll_balls(self) -> None:
         for i in range(8):
             if self.hole[i] == 0:
@@ -506,6 +509,7 @@ class OchoApp:
             return
 
         if bool(end_result["earned_bonus_round"]):
+            self.game.clear_board_for_next_turn()
             self.awaiting_reroll = True
             self.status_label.config(
                 text=(
@@ -517,6 +521,7 @@ class OchoApp:
             return
 
         self.awaiting_reroll = True
+        self.game.clear_board_for_next_turn()
         if automatic:
             self.status_label.config(
                 text=(
