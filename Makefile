@@ -1,7 +1,8 @@
 CXX := g++
 CXXFLAGS := -std=c++17 -O2 -Wall -Wextra -pedantic
+LDFLAGS := -static
 GTK_CFLAGS := $(shell pkg-config --cflags gtk+-3.0 2>/dev/null)
-GTK_LIBS := $(shell pkg-config --libs gtk+-3.0 2>/dev/null)
+GTK_LIBS := $(shell pkg-config --static --libs gtk+-3.0 2>/dev/null)
 
 TARGET := ocho_gui_cpp
 SRC := ocho_gui_cpp.cpp
@@ -18,7 +19,7 @@ check-deps:
 	fi
 
 $(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) $(GTK_CFLAGS) -o $@ $< $(GTK_LIBS)
+	$(CXX) $(CXXFLAGS) $(GTK_CFLAGS) $(LDFLAGS) -o $@ $< $(GTK_LIBS)
 
 clean:
 	rm -f $(TARGET)
