@@ -1,8 +1,16 @@
 CXX := g++
 CXXFLAGS := -std=c++17 -O2 -Wall -Wextra -pedantic
-LDFLAGS := -static
+STATIC ?= 0
+LDFLAGS :=
+PKG_CONFIG_LIBS_ARGS := --libs
+
+ifeq ($(STATIC),1)
+LDFLAGS += -static
+PKG_CONFIG_LIBS_ARGS := --static --libs
+endif
+
 GTK_CFLAGS := $(shell pkg-config --cflags gtk+-3.0 2>/dev/null)
-GTK_LIBS := $(shell pkg-config --static --libs gtk+-3.0 2>/dev/null)
+GTK_LIBS := $(shell pkg-config $(PKG_CONFIG_LIBS_ARGS) gtk+-3.0 2>/dev/null)
 
 TARGET := ocho_gui_cpp
 SRC := ocho_gui_cpp.cpp
