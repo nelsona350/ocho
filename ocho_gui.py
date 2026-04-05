@@ -443,6 +443,9 @@ class OchoApp:
             self.game.reload_non_matches()
         self.end_turn_btn.config(text="roll again" if self.awaiting_reroll else "end frame")
 
+        self.awaiting_reroll = self.game.number_of_matches == 0
+        self.end_turn_btn.config(text="roll again" if self.awaiting_reroll else "end frame")
+
         round_score = self.game.current_score()
         self.turn_label.config(text=f"Frame {self.game.frame_in_round}/8 (Round {self.game.round_number})")
         self.total_score_label.config(text=f"Total Score: {self.game.total_score:.0f}")
