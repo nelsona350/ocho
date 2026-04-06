@@ -276,10 +276,10 @@ class OchoGui {
     frame_text << "Frame Score: " << frame_score;
     gtk_label_set_text(GTK_LABEL(round_label_), frame_text.str().c_str());
 
-    const int needed = std::max(0, 88 - static_cast<int>(game_.current_round_score() + frame_score));
-    std::ostringstream needed_text;
-    needed_text << "To Bonus Round (88): " << needed;
-    gtk_label_set_text(GTK_LABEL(points_to_go_label_), needed_text.str().c_str());
+    const int locked_in_round_score = static_cast<int>(game_.current_round_score());
+    std::ostringstream locked_in_text;
+    locked_in_text << "Current Round Score: " << locked_in_round_score;
+    gtk_label_set_text(GTK_LABEL(points_to_go_label_), locked_in_text.str().c_str());
 
     for (int i = 0; i < 8; ++i) {
       int value = game_.hole()[i];

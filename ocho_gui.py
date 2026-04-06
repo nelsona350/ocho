@@ -451,8 +451,8 @@ class OchoApp:
         self.turn_label.config(text=f"Frame {self.game.frame_in_round}/8 (Round {self.game.round_number})")
         self.total_score_label.config(text=f"Total Score: {self.game.total_score:.0f}")
         self.round_score_label.config(text=f"Frame Score: {round_score:.0f}")
-        round_score_if_ended = self.game.current_round_score + round_score
-        self.points_to_go_label.config(text=f"To Bonus Round (88): {max(0, 88 - int(round_score_if_ended))}")
+        locked_in_round_score = int(self.game.current_round_score)
+        self.points_to_go_label.config(text=f"Current Round Score: {locked_in_round_score}")
 
         for i, val in enumerate(self.game.hole):
             self._draw_hole(i, val)
