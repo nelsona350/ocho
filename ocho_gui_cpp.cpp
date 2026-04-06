@@ -172,6 +172,7 @@ class OchoGui {
     load_high_scores();
     build_ui();
     awaiting_reroll_ = true;
+    displayed_hole_values_.fill(0);
     set_status("Click ROLL AGAIN to start frame 1.");
     update_view(false);
   }
@@ -302,8 +303,8 @@ class OchoGui {
     gtk_label_set_text(GTK_LABEL(points_to_go_label_), locked_in_text.str().c_str());
 
     for (int i = 0; i < 8; ++i) {
-      int value = game_.hole()[i];
-      bool match = value == i + 1;
+      int value = displayed_hole_values_[i];
+      bool match = game_.hole()[i] == i + 1;
 
       const std::string text = value == 0 ? std::to_string(i + 1) : std::to_string(value);
       gtk_button_set_label(GTK_BUTTON(hole_buttons_[i]), text.c_str());
@@ -365,6 +366,7 @@ class OchoGui {
 
   void finish_frame(bool automatic) {
     stop_roll_animation();
+    displayed_hole_values_.fill(0);
 
     const int frame_score = static_cast<int>(game_.current_score());
     const int prior_frame = game_.frame_in_round();
@@ -382,6 +384,7 @@ class OchoGui {
 
       game_.reset_game();
       awaiting_reroll_ = true;
+      displayed_hole_values_.fill(0);
       set_status("New game started. Click ROLL AGAIN to begin.");
       update_view(false);
       return;
@@ -393,6 +396,7 @@ class OchoGui {
       msg << "Round complete: " << static_cast<int>(result.completed_round_score)
           << " points in 8 frames. You earned a bonus round! Click ROLL AGAIN to continue.";
       awaiting_reroll_ = true;
+      displayed_hole_values_.fill(0);
       set_status(msg.str());
       update_view(false);
       return;
@@ -401,6 +405,7 @@ class OchoGui {
     std::ostringstream msg;
     awaiting_reroll_ = true;
     game_.clear_board_for_next_turn();
+    displayed_hole_values_.fill(0);
     if (automatic) {
       msg << "No matches on roll. Frame " << prior_frame << " ended with " << frame_score
           << " points. Click ROLL AGAIN.";
@@ -423,6 +428,7 @@ class OchoGui {
     stop_roll_animation();
     game_.reset_game();
     awaiting_reroll_ = true;
+    displayed_hole_values_.fill(0);
     set_status("Started a new game. Click ROLL AGAIN to begin.");
     update_view(false);
   }
@@ -573,8 +579,10 @@ class OchoGui {
     ++roll_animation_step_;
 
     if (roll_animation_step_ >= 8) {
+      displayed_hole_values_ = roll_snapshot_;
+      game_.reload_non_matches();
       stop_roll_animation();
-      update_view(true);
+      update_view(false);
       return G_SOURCE_REMOVE;
     }
 
@@ -611,6 +619,7 @@ class OchoGui {
   std::vector<GtkWidget*> frame_score_labels_;
   std::array<std::pair<OchoGui*, int>, 8> hole_click_context_{};
   std::array<int, 8> roll_snapshot_{};
+  std::array<int, 8> displayed_hole_values_{};
   bool awaiting_reroll_ = false;
   bool roll_animation_running_ = false;
   int roll_animation_step_ = -1;
