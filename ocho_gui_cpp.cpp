@@ -166,6 +166,8 @@ struct HighScoreEntry {
 
 class OchoGui {
  public:
+  static constexpr unsigned int kRollStepDelayMs = 500;
+
   OchoGui() {
     load_high_scores();
     build_ui();
@@ -194,6 +196,10 @@ class OchoGui {
 
   static void on_show_scores(GtkButton*, gpointer data) {
     static_cast<OchoGui*>(data)->show_high_scores();
+  }
+
+  static gboolean on_roll_animation_tick(gpointer data) {
+    return static_cast<OchoGui*>(data)->roll_animation_tick();
   }
 
   void build_ui() {
@@ -257,9 +263,23 @@ class OchoGui {
     status_label_ = gtk_label_new("Click a matching number to return it and roll again.");
     gtk_label_set_line_wrap(GTK_LABEL(status_label_), TRUE);
     gtk_box_pack_start(GTK_BOX(outer), status_label_, FALSE, FALSE, 0);
+
+    GtkCssProvider* css = gtk_css_provider_new();
+    const char* css_text =
+        ".active-roll {"
+        "  background-image: none;"
+        "  background-color: #ffd54f;"
+        "  color: #111111;"
+        "}";
+    gtk_css_provider_load_from_data(css, css_text, -1, nullptr);
+    gtk_style_context_add_provider_for_screen(gdk_screen_get_default(),
+                                              GTK_STYLE_PROVIDER(css),
+                                              GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    g_object_unref(css);
   }
 
   void update_view(bool after_roll) {
+    if (roll_animation_running_) return;
     if (after_roll) game_.reload_non_matches();
     gtk_button_set_label(GTK_BUTTON(end_button_), awaiting_reroll_ ? "ROLL AGAIN" : "END FRAME");
 
@@ -297,6 +317,11 @@ class OchoGui {
   }
 
   void handle_hole_click(int idx) {
+    if (roll_animation_running_) {
+      set_status("Roll is still resolving. Please wait for the buttons to finish lighting up.");
+      return;
+    }
+
     if (awaiting_reroll_) {
       set_status("Frame ended. Click ROLL AGAIN to start the next frame.");
       return;
@@ -318,15 +343,20 @@ class OchoGui {
     }
 
     set_status("Returned matched coin and rolled again.");
-    update_view(true);
+    start_roll_animation();
   }
 
   void end_turn() {
+    if (roll_animation_running_) {
+      set_status("Roll is still resolving. Please wait.");
+      return;
+    }
+
     if (awaiting_reroll_) {
       awaiting_reroll_ = false;
       game_.start_next_turn();
       set_status("Started next frame.");
-      update_view(true);
+      start_roll_animation();
       return;
     }
 
@@ -334,6 +364,8 @@ class OchoGui {
   }
 
   void finish_frame(bool automatic) {
+    stop_roll_animation();
+
     const int frame_score = static_cast<int>(game_.current_score());
     const int prior_frame = game_.frame_in_round();
     const auto result = game_.end_turn(false);
@@ -388,6 +420,7 @@ class OchoGui {
     gtk_widget_destroy(dialog);
     if (response != GTK_RESPONSE_YES) return;
 
+    stop_roll_animation();
     game_.reset_game();
     awaiting_reroll_ = true;
     set_status("Started a new game. Click ROLL AGAIN to begin.");
@@ -489,6 +522,72 @@ class OchoGui {
     }
   }
 
+  void start_roll_animation() {
+    stop_roll_animation();
+
+    roll_animation_running_ = true;
+    roll_animation_step_ = -1;
+    roll_snapshot_ = game_.hole();
+    gtk_widget_set_sensitive(end_button_, FALSE);
+    for (auto* button : hole_buttons_) {
+      gtk_widget_set_sensitive(button, FALSE);
+      gtk_button_set_label(GTK_BUTTON(button), "•");
+      GtkStyleContext* context = gtk_widget_get_style_context(button);
+      gtk_style_context_remove_class(context, "suggested-action");
+      gtk_style_context_remove_class(context, "active-roll");
+    }
+
+    for (auto* label : frame_score_labels_) {
+      gtk_label_set_text(GTK_LABEL(label), "0");
+    }
+
+    roll_animation_tick();
+    roll_animation_timer_id_ = g_timeout_add(kRollStepDelayMs, on_roll_animation_tick, this);
+  }
+
+  void stop_roll_animation() {
+    if (roll_animation_timer_id_ != 0) {
+      g_source_remove(roll_animation_timer_id_);
+      roll_animation_timer_id_ = 0;
+    }
+
+    roll_animation_running_ = false;
+    roll_animation_step_ = -1;
+
+    for (auto* button : hole_buttons_) {
+      GtkStyleContext* context = gtk_widget_get_style_context(button);
+      gtk_style_context_remove_class(context, "active-roll");
+      gtk_widget_set_sensitive(button, TRUE);
+    }
+    gtk_widget_set_sensitive(end_button_, TRUE);
+  }
+
+  gboolean roll_animation_tick() {
+    if (!roll_animation_running_) return G_SOURCE_REMOVE;
+
+    if (roll_animation_step_ >= 0 && roll_animation_step_ < 8) {
+      GtkStyleContext* previous = gtk_widget_get_style_context(hole_buttons_[roll_animation_step_]);
+      gtk_style_context_remove_class(previous, "active-roll");
+    }
+
+    ++roll_animation_step_;
+
+    if (roll_animation_step_ >= 8) {
+      stop_roll_animation();
+      update_view(true);
+      return G_SOURCE_REMOVE;
+    }
+
+    const int value = roll_snapshot_[roll_animation_step_];
+    const std::string text = value == 0 ? std::to_string(roll_animation_step_ + 1) : std::to_string(value);
+    gtk_button_set_label(GTK_BUTTON(hole_buttons_[roll_animation_step_]), text.c_str());
+
+    GtkStyleContext* context = gtk_widget_get_style_context(hole_buttons_[roll_animation_step_]);
+    gtk_style_context_add_class(context, "active-roll");
+
+    return G_SOURCE_CONTINUE;
+  }
+
   OchoGame game_;
   std::vector<HighScoreEntry> high_scores_;
 
@@ -503,7 +602,11 @@ class OchoGui {
   std::vector<GtkWidget*> hole_buttons_;
   std::vector<GtkWidget*> frame_score_labels_;
   std::array<std::pair<OchoGui*, int>, 8> hole_click_context_{};
+  std::array<int, 8> roll_snapshot_{};
   bool awaiting_reroll_ = false;
+  bool roll_animation_running_ = false;
+  int roll_animation_step_ = -1;
+  guint roll_animation_timer_id_ = 0;
 };
 
 int main(int argc, char** argv) {
