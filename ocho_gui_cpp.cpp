@@ -280,7 +280,7 @@ class OchoGui {
 
   void update_view(bool after_roll) {
     if (roll_animation_running_) return;
-    if (after_roll) game_.reload_non_matches();
+    (void)after_roll;
     gtk_button_set_label(GTK_BUTTON(end_button_), awaiting_reroll_ ? "ROLL AGAIN" : "END FRAME");
 
     std::ostringstream turn_text;
@@ -583,6 +583,14 @@ class OchoGui {
     gtk_button_set_label(GTK_BUTTON(hole_buttons_[roll_animation_step_]), text.c_str());
 
     GtkStyleContext* context = gtk_widget_get_style_context(hole_buttons_[roll_animation_step_]);
+    if (value == roll_animation_step_ + 1) {
+      gtk_style_context_add_class(context, "suggested-action");
+      const std::string frame_score = std::to_string(roll_animation_step_ + 1);
+      gtk_label_set_text(GTK_LABEL(frame_score_labels_[roll_animation_step_]), frame_score.c_str());
+    } else {
+      gtk_style_context_remove_class(context, "suggested-action");
+      gtk_label_set_text(GTK_LABEL(frame_score_labels_[roll_animation_step_]), "0");
+    }
     gtk_style_context_add_class(context, "active-roll");
 
     return G_SOURCE_CONTINUE;
