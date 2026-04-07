@@ -476,7 +476,7 @@
     self.bestRound = 0;
     self.closestCall = 289;
     self.delayInSeconds = 1.0;
-    self.holeActivationDelay = 0.5;
+    self.holeActivationDelay = 0.25;
     self.roundLimit = 4;
     self.bestRoundNumber = 1;
     self.passed88 = NO;

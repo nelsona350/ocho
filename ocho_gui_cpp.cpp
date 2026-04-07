@@ -166,7 +166,7 @@ struct HighScoreEntry {
 
 class OchoGui {
  public:
-  static constexpr unsigned int kRollStepDelayMs = 500;
+  static constexpr unsigned int kRollStepDelayMs = 250;
 
   OchoGui() {
     load_high_scores();
@@ -339,10 +339,15 @@ class OchoGui {
     }
 
     if (game_.number_of_matches() == 0) {
-      finish_frame(true);
+      finish_after_roll_animation_ = true;
+      finish_after_roll_automatic_ = true;
+      set_status("No matches on reroll. Finishing frame after reveal.");
+      start_roll_animation();
       return;
     }
 
+    finish_after_roll_animation_ = false;
+    finish_after_roll_automatic_ = false;
     set_status("Returned matched coin and rolled again.");
     start_roll_animation();
   }
@@ -354,6 +359,8 @@ class OchoGui {
     }
 
     if (awaiting_reroll_) {
+      finish_after_roll_animation_ = false;
+      finish_after_roll_automatic_ = false;
       awaiting_reroll_ = false;
       game_.start_next_turn();
       set_status("Started next frame.");
@@ -366,6 +373,8 @@ class OchoGui {
 
   void finish_frame(bool automatic) {
     stop_roll_animation();
+    finish_after_roll_animation_ = false;
+    finish_after_roll_automatic_ = false;
     displayed_hole_values_.fill(0);
 
     const int frame_score = static_cast<int>(game_.current_score());
@@ -426,6 +435,8 @@ class OchoGui {
     if (response != GTK_RESPONSE_YES) return;
 
     stop_roll_animation();
+    finish_after_roll_animation_ = false;
+    finish_after_roll_automatic_ = false;
     game_.reset_game();
     awaiting_reroll_ = true;
     displayed_hole_values_.fill(0);
@@ -582,6 +593,13 @@ class OchoGui {
       displayed_hole_values_ = roll_snapshot_;
       game_.reload_non_matches();
       stop_roll_animation();
+      if (finish_after_roll_animation_) {
+        const bool automatic = finish_after_roll_automatic_;
+        finish_after_roll_animation_ = false;
+        finish_after_roll_automatic_ = false;
+        finish_frame(automatic);
+        return G_SOURCE_REMOVE;
+      }
       update_view(false);
       return G_SOURCE_REMOVE;
     }
@@ -621,6 +639,8 @@ class OchoGui {
   std::array<int, 8> roll_snapshot_{};
   std::array<int, 8> displayed_hole_values_{};
   bool awaiting_reroll_ = false;
+  bool finish_after_roll_animation_ = false;
+  bool finish_after_roll_automatic_ = false;
   bool roll_animation_running_ = false;
   int roll_animation_step_ = -1;
   guint roll_animation_timer_id_ = 0;
