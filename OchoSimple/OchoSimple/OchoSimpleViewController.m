@@ -39,6 +39,8 @@
 - (void) unlockUnlimitedRounds;
 - (void) screenCapture;
 - (void) copyHoles;
+- (void) scheduleNextMatchCheck;
+- (UIButton *)buttonForHoleNumber:(int)holeNumber;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *hole1;
@@ -78,6 +80,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *emptyHoleLabel8;
 @property (weak, nonatomic) IBOutlet UILabel *pointsToGoText;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic) NSTimeInterval holeActivationDelay;
 
 @end
 
@@ -473,6 +476,7 @@
     self.bestRound = 0;
     self.closestCall = 289;
     self.delayInSeconds = 1.0;
+    self.holeActivationDelay = 0.25;
     self.roundLimit = 4;
     self.bestRoundNumber = 1;
     self.passed88 = NO;
@@ -747,15 +751,15 @@
 - (void)tossCoins:(id)sender
 {
     
-    // set all holes to highlighted state
-    [self.hole1 setHighlighted:YES];
-    [self.hole2 setHighlighted:YES];
-    [self.hole3 setHighlighted:YES];
-    [self.hole4 setHighlighted:YES];
-    [self.hole5 setHighlighted:YES];
-    [self.hole6 setHighlighted:YES];
-    [self.hole7 setHighlighted:YES];
-    [self.hole8 setHighlighted:YES];
+    // clear hole highlights; each hole will light up sequentially during checkMatch
+    [self.hole1 setHighlighted:NO];
+    [self.hole2 setHighlighted:NO];
+    [self.hole3 setHighlighted:NO];
+    [self.hole4 setHighlighted:NO];
+    [self.hole5 setHighlighted:NO];
+    [self.hole6 setHighlighted:NO];
+    [self.hole7 setHighlighted:NO];
+    [self.hole8 setHighlighted:NO];
 
     // draw a coin for each unmatched hole
     
@@ -867,7 +871,7 @@
                                             (0.1 * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
                    {
-                       [self checkMatch];
+                       [self scheduleNextMatchCheck];
                    });*/
 
     // disable user interaction while matches are being displayed
@@ -922,6 +926,28 @@
 	return;
 }
 
+- (UIButton *)buttonForHoleNumber:(int)holeNumber
+{
+    if(holeNumber == 1) return self.hole1;
+    if(holeNumber == 2) return self.hole2;
+    if(holeNumber == 3) return self.hole3;
+    if(holeNumber == 4) return self.hole4;
+    if(holeNumber == 5) return self.hole5;
+    if(holeNumber == 6) return self.hole6;
+    if(holeNumber == 7) return self.hole7;
+    if(holeNumber == 8) return self.hole8;
+    return nil;
+}
+
+- (void)scheduleNextMatchCheck
+{
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.holeActivationDelay * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+                   {
+                       [self checkMatch];
+                   });
+}
+
 - (void) copyHoles
 {
     [self.holeOld setArray:self.hole];
@@ -932,7 +958,7 @@ void soundFinishedPlaying(SystemSoundID ssID, void *clientData)
 	OchoSimpleViewController* object = (__bridge OchoSimpleViewController *)(clientData);
     AudioServicesDisposeSystemSoundID(ssID);
     [object screenCapture];
-    [object checkMatch];
+    [object scheduleNextMatchCheck];
 }
 
 - (void)checkMatch
@@ -940,6 +966,12 @@ void soundFinishedPlaying(SystemSoundID ssID, void *clientData)
     int hole = self.currentHole;
     self.currentHole++;
     dispatch_queue_t serialQueue = dispatch_queue_create("com.ocho.queue", DISPATCH_QUEUE_SERIAL);
+
+    UIButton *activeButton = [self buttonForHoleNumber:hole];
+    if(activeButton != nil)
+    {
+        [activeButton setHighlighted:YES];
+    }
     
     if(hole == 1)
     {
@@ -966,7 +998,7 @@ void soundFinishedPlaying(SystemSoundID ssID, void *clientData)
             }
             else
             {
-                [self checkMatch];
+                [self scheduleNextMatchCheck];
             }
 
         }
@@ -974,7 +1006,7 @@ void soundFinishedPlaying(SystemSoundID ssID, void *clientData)
         {
             self.emptyHoleLabel1.text =
             [NSString stringWithFormat:@"%d",[[self.holeOld objectAtIndex:0] integerValue]];
-            [self checkMatch];
+            [self scheduleNextMatchCheck];
         }
     }
     else if(hole == 2)
@@ -999,7 +1031,7 @@ void soundFinishedPlaying(SystemSoundID ssID, void *clientData)
             }
             else
             {
-                [self checkMatch];
+                [self scheduleNextMatchCheck];
             }
             
         }
@@ -1007,7 +1039,7 @@ void soundFinishedPlaying(SystemSoundID ssID, void *clientData)
         {
             self.emptyHoleLabel2.text =
             [NSString stringWithFormat:@"%d",[[self.holeOld objectAtIndex:1] integerValue]];
-            [self checkMatch];
+            [self scheduleNextMatchCheck];
         }
     }
     else if(hole == 3)
@@ -1032,7 +1064,7 @@ void soundFinishedPlaying(SystemSoundID ssID, void *clientData)
             }
             else
             {
-                [self checkMatch];
+                [self scheduleNextMatchCheck];
             }
             
         }
@@ -1040,7 +1072,7 @@ void soundFinishedPlaying(SystemSoundID ssID, void *clientData)
         {
             self.emptyHoleLabel3.text =
             [NSString stringWithFormat:@"%d",[[self.holeOld objectAtIndex:2] integerValue]];
-            [self checkMatch];
+            [self scheduleNextMatchCheck];
         }
     }
     else if(hole == 4)
@@ -1065,7 +1097,7 @@ void soundFinishedPlaying(SystemSoundID ssID, void *clientData)
             }
             else
             {
-                [self checkMatch];
+                [self scheduleNextMatchCheck];
             }
             
         }
@@ -1073,7 +1105,7 @@ void soundFinishedPlaying(SystemSoundID ssID, void *clientData)
         {
             self.emptyHoleLabel4.text =
             [NSString stringWithFormat:@"%d",[[self.holeOld objectAtIndex:3] integerValue]];
-            [self checkMatch];
+            [self scheduleNextMatchCheck];
         }
     }
     else if(hole == 5)
@@ -1098,7 +1130,7 @@ void soundFinishedPlaying(SystemSoundID ssID, void *clientData)
             }
             else
             {
-                [self checkMatch];
+                [self scheduleNextMatchCheck];
             }
             
         }
@@ -1106,7 +1138,7 @@ void soundFinishedPlaying(SystemSoundID ssID, void *clientData)
         {
             self.emptyHoleLabel5.text =
             [NSString stringWithFormat:@"%d",[[self.holeOld objectAtIndex:4] integerValue]];
-            [self checkMatch];
+            [self scheduleNextMatchCheck];
         }
     }
     else if(hole == 6)
@@ -1131,7 +1163,7 @@ void soundFinishedPlaying(SystemSoundID ssID, void *clientData)
             }
             else
             {
-                [self checkMatch];
+                [self scheduleNextMatchCheck];
             }
             
         }
@@ -1139,7 +1171,7 @@ void soundFinishedPlaying(SystemSoundID ssID, void *clientData)
         {
             self.emptyHoleLabel6.text =
             [NSString stringWithFormat:@"%d",[[self.holeOld objectAtIndex:5] integerValue]];
-            [self checkMatch];
+            [self scheduleNextMatchCheck];
         }
     }
     else if(hole == 7)
@@ -1164,7 +1196,7 @@ void soundFinishedPlaying(SystemSoundID ssID, void *clientData)
             }
             else
             {
-                [self checkMatch];
+                [self scheduleNextMatchCheck];
             }
             
         }
@@ -1172,7 +1204,7 @@ void soundFinishedPlaying(SystemSoundID ssID, void *clientData)
         {
             self.emptyHoleLabel7.text =
             [NSString stringWithFormat:@"%d",[[self.holeOld objectAtIndex:6] integerValue]];
-            [self checkMatch];
+            [self scheduleNextMatchCheck];
         }
     }
     else if(hole == 8)
@@ -1197,7 +1229,7 @@ void soundFinishedPlaying(SystemSoundID ssID, void *clientData)
             }
             else
             {
-                [self checkMatch];
+                [self scheduleNextMatchCheck];
             }
             
         }
@@ -1205,7 +1237,7 @@ void soundFinishedPlaying(SystemSoundID ssID, void *clientData)
         {
             self.emptyHoleLabel8.text =
             [NSString stringWithFormat:@"%d",[[self.holeOld objectAtIndex:7] integerValue]];
-            [self checkMatch];
+            [self scheduleNextMatchCheck];
         }
         
         if(self.numberOfMatches > 0)
